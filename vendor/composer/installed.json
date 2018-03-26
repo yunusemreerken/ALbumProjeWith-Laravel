@@ -545,6 +545,7 @@
         ]
     },
     {
+<<<<<<< HEAD
         "name": "guzzlehttp/psr7",
         "version": "1.4.2",
         "version_normalized": "1.4.2.0",
@@ -612,6 +613,8 @@
         ]
     },
     {
+=======
+>>>>>>> master
         "name": "hamcrest/hamcrest-php",
         "version": "v2.0.0",
         "version_normalized": "2.0.0.0",
@@ -662,6 +665,7 @@
         ]
     },
     {
+<<<<<<< HEAD
         "name": "intervention/image",
         "version": "2.4.1",
         "version_normalized": "2.4.1.0",
@@ -734,6 +738,8 @@
         ]
     },
     {
+=======
+>>>>>>> master
         "name": "jakub-onderka/php-console-color",
         "version": "0.1",
         "version_normalized": "0.1.0.0",
@@ -1030,6 +1036,7 @@
         ]
     },
     {
+<<<<<<< HEAD
         "name": "laravelcollective/html",
         "version": "v5.6.5",
         "version_normalized": "5.6.5.0",
@@ -1100,6 +1107,8 @@
         "homepage": "https://laravelcollective.com"
     },
     {
+=======
+>>>>>>> master
         "name": "league/flysystem",
         "version": "1.0.43",
         "version_normalized": "1.0.43.0",
@@ -2381,6 +2390,7 @@
         ]
     },
     {
+<<<<<<< HEAD
         "name": "psr/http-message",
         "version": "1.0.1",
         "version_normalized": "1.0.1.0",
@@ -2433,6 +2443,8 @@
         ]
     },
     {
+=======
+>>>>>>> master
         "name": "psr/log",
         "version": "1.0.2",
         "version_normalized": "1.0.2.0",
