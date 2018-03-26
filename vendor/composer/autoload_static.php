@@ -13,17 +13,25 @@ class ComposerStaticInit636130a31418a4f0e58aa684e6e5952d
         '2c102faa651ef8ea5874edb585946bce' => __DIR__ . '/..' . '/swiftmailer/swiftmailer/lib/swift_required.php',
         '5255c38a0faeba867671b61dfda6d864' => __DIR__ . '/..' . '/paragonie/random_compat/lib/random.php',
 <<<<<<< HEAD
+<<<<<<< HEAD
         'a0edc8309cc5e1d60e3047b5df6b7052' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/functions_include.php',
 =======
 >>>>>>> master
+=======
+        'a0edc8309cc5e1d60e3047b5df6b7052' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/functions_include.php',
+>>>>>>> badb3d8... admin and image
         'f0906e6318348a765ffb6eb24e0d0938' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Foundation/helpers.php',
         '58571171fd5812e6e447dce228f52f4d' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Support/helpers.php',
         '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
         'e7223560d890eab89cda23685e711e2c' => __DIR__ . '/..' . '/psy/psysh/src/Psy/functions.php',
 <<<<<<< HEAD
+<<<<<<< HEAD
         'f18cc91337d49233e5754e93f3ed9ec3' => __DIR__ . '/..' . '/laravelcollective/html/src/helpers.php',
 =======
 >>>>>>> master
+=======
+        'f18cc91337d49233e5754e93f3ed9ec3' => __DIR__ . '/..' . '/laravelcollective/html/src/helpers.php',
+>>>>>>> badb3d8... admin and image
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -71,9 +79,13 @@ class ComposerStaticInit636130a31418a4f0e58aa684e6e5952d
             'Psr\\SimpleCache\\' => 16,
             'Psr\\Log\\' => 8,
 <<<<<<< HEAD
+<<<<<<< HEAD
             'Psr\\Http\\Message\\' => 17,
 =======
 >>>>>>> master
+=======
+            'Psr\\Http\\Message\\' => 17,
+>>>>>>> badb3d8... admin and image
             'Psr\\Container\\' => 14,
             'PhpParser\\' => 10,
         ),
@@ -93,6 +105,9 @@ class ComposerStaticInit636130a31418a4f0e58aa684e6e5952d
         'I' => 
         array (
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> badb3d8... admin and image
             'Intervention\\Image\\' => 19,
             'Illuminate\\' => 11,
         ),
@@ -100,10 +115,13 @@ class ComposerStaticInit636130a31418a4f0e58aa684e6e5952d
         array (
             'GuzzleHttp\\Psr7\\' => 16,
         ),
+<<<<<<< HEAD
 =======
             'Illuminate\\' => 11,
         ),
 >>>>>>> master
+=======
+>>>>>>> badb3d8... admin and image
         'F' => 
         array (
             'Fideloper\\Proxy\\' => 16,
@@ -124,9 +142,13 @@ class ComposerStaticInit636130a31418a4f0e58aa684e6e5952d
         array (
             'Cron\\' => 5,
 <<<<<<< HEAD
+<<<<<<< HEAD
             'Collective\\Html\\' => 16,
 =======
 >>>>>>> master
+=======
+            'Collective\\Html\\' => 16,
+>>>>>>> badb3d8... admin and image
             'Carbon\\' => 7,
         ),
         'A' => 
@@ -231,12 +253,18 @@ class ComposerStaticInit636130a31418a4f0e58aa684e6e5952d
             0 => __DIR__ . '/..' . '/psr/log/Psr/Log',
         ),
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> badb3d8... admin and image
         'Psr\\Http\\Message\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/http-message/src',
         ),
+<<<<<<< HEAD
 =======
 >>>>>>> master
+=======
+>>>>>>> badb3d8... admin and image
         'Psr\\Container\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/container/src',
@@ -262,23 +290,35 @@ class ComposerStaticInit636130a31418a4f0e58aa684e6e5952d
             0 => __DIR__ . '/..' . '/laravel/tinker/src',
         ),
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> badb3d8... admin and image
         'Intervention\\Image\\' => 
         array (
             0 => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image',
         ),
+<<<<<<< HEAD
 =======
 >>>>>>> master
+=======
+>>>>>>> badb3d8... admin and image
         'Illuminate\\' => 
         array (
             0 => __DIR__ . '/..' . '/laravel/framework/src/Illuminate',
         ),
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> badb3d8... admin and image
         'GuzzleHttp\\Psr7\\' => 
         array (
             0 => __DIR__ . '/..' . '/guzzlehttp/psr7/src',
         ),
+<<<<<<< HEAD
 =======
 >>>>>>> master
+=======
+>>>>>>> badb3d8... admin and image
         'Fideloper\\Proxy\\' => 
         array (
             0 => __DIR__ . '/..' . '/fideloper/proxy/src',
@@ -312,12 +352,18 @@ class ComposerStaticInit636130a31418a4f0e58aa684e6e5952d
             0 => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron',
         ),
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> badb3d8... admin and image
         'Collective\\Html\\' => 
         array (
             0 => __DIR__ . '/..' . '/laravelcollective/html/src',
         ),
+<<<<<<< HEAD
 =======
 >>>>>>> master
+=======
+>>>>>>> badb3d8... admin and image
         'Carbon\\' => 
         array (
             0 => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon',
@@ -371,20 +417,30 @@ class ComposerStaticInit636130a31418a4f0e58aa684e6e5952d
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
 <<<<<<< HEAD
+<<<<<<< HEAD
         'App\\Http\\Controllers\\AdminController' => __DIR__ . '/../..' . '/app/Http/Controllers/AdminController.php',
 =======
 >>>>>>> master
+=======
+        'App\\Http\\Controllers\\AdminController' => __DIR__ . '/../..' . '/app/Http/Controllers/AdminController.php',
+>>>>>>> badb3d8... admin and image
         'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
         'App\\Http\\Controllers\\Auth\\LoginController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/LoginController.php',
         'App\\Http\\Controllers\\Auth\\RegisterController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/RegisterController.php',
         'App\\Http\\Controllers\\Auth\\ResetPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ResetPasswordController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
 <<<<<<< HEAD
+<<<<<<< HEAD
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
         'App\\Http\\Controllers\\ImageController' => __DIR__ . '/../..' . '/app/Http/Controllers/ImageController.php',
         'App\\Http\\Controllers\\UploadImageController' => __DIR__ . '/../..' . '/app/Http/Controllers/UploadImageController.php',
 =======
 >>>>>>> master
+=======
+        'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
+        'App\\Http\\Controllers\\ImageController' => __DIR__ . '/../..' . '/app/Http/Controllers/ImageController.php',
+        'App\\Http\\Controllers\\UploadImageController' => __DIR__ . '/../..' . '/app/Http/Controllers/UploadImageController.php',
+>>>>>>> badb3d8... admin and image
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\EncryptCookies' => __DIR__ . '/../..' . '/app/Http/Middleware/EncryptCookies.php',
         'App\\Http\\Middleware\\RedirectIfAuthenticated' => __DIR__ . '/../..' . '/app/Http/Middleware/RedirectIfAuthenticated.php',
@@ -392,9 +448,13 @@ class ComposerStaticInit636130a31418a4f0e58aa684e6e5952d
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
 <<<<<<< HEAD
+<<<<<<< HEAD
         'App\\Http\\Middleware\\adminCheck' => __DIR__ . '/../..' . '/app/Http/Middleware/adminCheck.php',
 =======
 >>>>>>> master
+=======
+        'App\\Http\\Middleware\\adminCheck' => __DIR__ . '/../..' . '/app/Http/Middleware/adminCheck.php',
+>>>>>>> badb3d8... admin and image
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
         'App\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',
@@ -406,6 +466,9 @@ class ComposerStaticInit636130a31418a4f0e58aa684e6e5952d
         'Carbon\\Exceptions\\InvalidDateException' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Exceptions/InvalidDateException.php',
         'Carbon\\Translator' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Translator.php',
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> badb3d8... admin and image
         'Collective\\Html\\Componentable' => __DIR__ . '/..' . '/laravelcollective/html/src/Componentable.php',
         'Collective\\Html\\Eloquent\\FormAccessible' => __DIR__ . '/..' . '/laravelcollective/html/src/Eloquent/FormAccessible.php',
         'Collective\\Html\\FormBuilder' => __DIR__ . '/..' . '/laravelcollective/html/src/FormBuilder.php',
@@ -413,8 +476,11 @@ class ComposerStaticInit636130a31418a4f0e58aa684e6e5952d
         'Collective\\Html\\HtmlBuilder' => __DIR__ . '/..' . '/laravelcollective/html/src/HtmlBuilder.php',
         'Collective\\Html\\HtmlFacade' => __DIR__ . '/..' . '/laravelcollective/html/src/HtmlFacade.php',
         'Collective\\Html\\HtmlServiceProvider' => __DIR__ . '/..' . '/laravelcollective/html/src/HtmlServiceProvider.php',
+<<<<<<< HEAD
 =======
 >>>>>>> master
+=======
+>>>>>>> badb3d8... admin and image
         'Cron\\AbstractField' => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron/AbstractField.php',
         'Cron\\CronExpression' => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron/CronExpression.php',
         'Cron\\DayOfMonthField' => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron/DayOfMonthField.php',
@@ -966,6 +1032,9 @@ class ComposerStaticInit636130a31418a4f0e58aa684e6e5952d
         'File_Iterator_Facade' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Facade.php',
         'File_Iterator_Factory' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Factory.php',
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> badb3d8... admin and image
         'GuzzleHttp\\Psr7\\AppendStream' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/AppendStream.php',
         'GuzzleHttp\\Psr7\\BufferStream' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/BufferStream.php',
         'GuzzleHttp\\Psr7\\CachingStream' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/CachingStream.php',
@@ -988,8 +1057,11 @@ class ComposerStaticInit636130a31418a4f0e58aa684e6e5952d
         'GuzzleHttp\\Psr7\\Uri' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/Uri.php',
         'GuzzleHttp\\Psr7\\UriNormalizer' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/UriNormalizer.php',
         'GuzzleHttp\\Psr7\\UriResolver' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/UriResolver.php',
+<<<<<<< HEAD
 =======
 >>>>>>> master
+=======
+>>>>>>> badb3d8... admin and image
         'Hamcrest\\Arrays\\IsArray' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Arrays/IsArray.php',
         'Hamcrest\\Arrays\\IsArrayContaining' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Arrays/IsArrayContaining.php',
         'Hamcrest\\Arrays\\IsArrayContainingInAnyOrder' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Arrays/IsArrayContainingInAnyOrder.php',
@@ -1839,6 +1911,9 @@ class ComposerStaticInit636130a31418a4f0e58aa684e6e5952d
         'Illuminate\\View\\ViewName' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/View/ViewName.php',
         'Illuminate\\View\\ViewServiceProvider' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/View/ViewServiceProvider.php',
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> badb3d8... admin and image
         'Intervention\\Image\\AbstractColor' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/AbstractColor.php',
         'Intervention\\Image\\AbstractDecoder' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/AbstractDecoder.php',
         'Intervention\\Image\\AbstractDriver' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/AbstractDriver.php',
@@ -1965,8 +2040,11 @@ class ComposerStaticInit636130a31418a4f0e58aa684e6e5952d
         'Intervention\\Image\\Point' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Point.php',
         'Intervention\\Image\\Response' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Response.php',
         'Intervention\\Image\\Size' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Size.php',
+<<<<<<< HEAD
 =======
 >>>>>>> master
+=======
+>>>>>>> badb3d8... admin and image
         'JakubOnderka\\PhpConsoleColor\\ConsoleColor' => __DIR__ . '/..' . '/jakub-onderka/php-console-color/src/JakubOnderka/PhpConsoleColor/ConsoleColor.php',
         'JakubOnderka\\PhpConsoleColor\\InvalidStyleException' => __DIR__ . '/..' . '/jakub-onderka/php-console-color/src/JakubOnderka/PhpConsoleColor/InvalidStyleException.php',
         'JakubOnderka\\PhpConsoleHighlighter\\Highlighter' => __DIR__ . '/..' . '/jakub-onderka/php-console-highlighter/src/JakubOnderka/PhpConsoleHighlighter/Highlighter.php',
@@ -2907,6 +2985,9 @@ class ComposerStaticInit636130a31418a4f0e58aa684e6e5952d
         'Psr\\Container\\ContainerInterface' => __DIR__ . '/..' . '/psr/container/src/ContainerInterface.php',
         'Psr\\Container\\NotFoundExceptionInterface' => __DIR__ . '/..' . '/psr/container/src/NotFoundExceptionInterface.php',
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> badb3d8... admin and image
         'Psr\\Http\\Message\\MessageInterface' => __DIR__ . '/..' . '/psr/http-message/src/MessageInterface.php',
         'Psr\\Http\\Message\\RequestInterface' => __DIR__ . '/..' . '/psr/http-message/src/RequestInterface.php',
         'Psr\\Http\\Message\\ResponseInterface' => __DIR__ . '/..' . '/psr/http-message/src/ResponseInterface.php',
@@ -2914,8 +2995,11 @@ class ComposerStaticInit636130a31418a4f0e58aa684e6e5952d
         'Psr\\Http\\Message\\StreamInterface' => __DIR__ . '/..' . '/psr/http-message/src/StreamInterface.php',
         'Psr\\Http\\Message\\UploadedFileInterface' => __DIR__ . '/..' . '/psr/http-message/src/UploadedFileInterface.php',
         'Psr\\Http\\Message\\UriInterface' => __DIR__ . '/..' . '/psr/http-message/src/UriInterface.php',
+<<<<<<< HEAD
 =======
 >>>>>>> master
+=======
+>>>>>>> badb3d8... admin and image
         'Psr\\Log\\AbstractLogger' => __DIR__ . '/..' . '/psr/log/Psr/Log/AbstractLogger.php',
         'Psr\\Log\\InvalidArgumentException' => __DIR__ . '/..' . '/psr/log/Psr/Log/InvalidArgumentException.php',
         'Psr\\Log\\LogLevel' => __DIR__ . '/..' . '/psr/log/Psr/Log/LogLevel.php',
