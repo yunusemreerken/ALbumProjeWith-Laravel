@@ -545,10 +545,6 @@
         ]
     },
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> badb3d8... admin and image
         "name": "guzzlehttp/psr7",
         "version": "1.4.2",
         "version_normalized": "1.4.2.0",
@@ -616,11 +612,6 @@
         ]
     },
     {
-<<<<<<< HEAD
-=======
->>>>>>> master
-=======
->>>>>>> badb3d8... admin and image
         "name": "hamcrest/hamcrest-php",
         "version": "v2.0.0",
         "version_normalized": "2.0.0.0",
@@ -671,10 +662,6 @@
         ]
     },
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> badb3d8... admin and image
         "name": "intervention/image",
         "version": "2.4.1",
         "version_normalized": "2.4.1.0",
@@ -747,11 +734,6 @@
         ]
     },
     {
-<<<<<<< HEAD
-=======
->>>>>>> master
-=======
->>>>>>> badb3d8... admin and image
         "name": "jakub-onderka/php-console-color",
         "version": "0.1",
         "version_normalized": "0.1.0.0",
@@ -1048,10 +1030,6 @@
         ]
     },
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> badb3d8... admin and image
         "name": "laravelcollective/html",
         "version": "v5.6.5",
         "version_normalized": "5.6.5.0",
@@ -1122,11 +1100,6 @@
         "homepage": "https://laravelcollective.com"
     },
     {
-<<<<<<< HEAD
-=======
->>>>>>> master
-=======
->>>>>>> badb3d8... admin and image
         "name": "league/flysystem",
         "version": "1.0.43",
         "version_normalized": "1.0.43.0",
@@ -2408,10 +2381,6 @@
         ]
     },
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> badb3d8... admin and image
         "name": "psr/http-message",
         "version": "1.0.1",
         "version_normalized": "1.0.1.0",
@@ -2464,11 +2433,6 @@
         ]
     },
     {
-<<<<<<< HEAD
-=======
->>>>>>> master
-=======
->>>>>>> badb3d8... admin and image
         "name": "psr/log",
         "version": "1.0.2",
         "version_normalized": "1.0.2.0",
