@@ -30,3 +30,7 @@ route::post('uploadImage','ImageController@addImage');
 // delete image
 route::get('deleteImage','ImageController@delete')->name('deleteImage');
 // Route::get('deleteImage','UploadImageController');
+
+Route::get('/album', function () {
+    return view('album');
+});
