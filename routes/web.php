@@ -39,6 +39,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 // Route::get('admingiris','AdminController@index');
 
 Route::get('/album','ImageController@display')->name('album');
+
 Route::post('/starRating','ImageController@getByID')->name('starRating');
 
 Route::get('/projeler','ProjeController@display')->name('projeler');

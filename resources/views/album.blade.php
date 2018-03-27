@@ -57,7 +57,7 @@
                               <input id="rate1-star2{{$i}}" type="radio" name="rate" value="2" />
                               <label for="rate1-star2{{$i}}" title="Bad">2</label>
 
-                              <input id="rate1-star1{{$i}}" type="radio" name="rate" value="1" />
+                              <input id="rate1-star1{{$i}}" type="radio" name="rate" value="1" required/>
                               <label for="rate1-star1{{$i}}" title="Very bad">1</label>
                             </fieldset>
 
@@ -65,7 +65,10 @@
                           <?php $i++; ?>
                         </div>
                         <input style="width:55px; height:55px;" id= "rateButon" type="submit" class="btn btn-sm btn-outline-secondary" name="" value="Oyla">
+                        <br><br>
+                        {{round($image->ort,1)}}
                       </form>
+
 
 
 
@@ -76,6 +79,14 @@
                 </div>
               </div>
             <?php endforeach; ?>
+
+
+
+
+
+
+
+
           </div>
         </div>
       </div>
