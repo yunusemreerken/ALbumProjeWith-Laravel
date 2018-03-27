@@ -11,7 +11,9 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+
+
+    <link rel="stylesheet" href="css/dashboard.css">
 
 
 
@@ -19,14 +21,17 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
    <!-- <link rel="stylesheet" href="css/bootstrap.min.css"> -->
     <!-- Our Custom CSS -->
-    <link rel="stylesheet" href="css/dashboard.css">
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">
-
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+    <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+
 </head>
 <body>
   <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
@@ -59,28 +64,41 @@
   </nav>
 
       <!-- <canvas class="my-4" id="myChart" width="900" height="380"></canvas> -->
-
-
           @yield('content')
     </div>
 </body>
-      <!-- Bootstrap core JavaScript
-      ================================================== -->
-      <!-- Placed at the end of the document so the pages load faster -->
+      <!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script> -->
+
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
       <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-      <script>window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
-      <script src="../../../../assets/js/vendor/popper.min.js"></script>
-      <script src="../../../../dist/js/bootstrap.min.js"></script>
+      <!-- <script>window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script> -->
+      <!-- <script src="../../../../assets/js/vendor/popper.min.js"></script> -->
+      <!-- <script src="../../../../dist/js/bootstrap.min.js"></script> -->
 
       <!-- Icons -->
       <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
-      <script>
-        feather.replace()
-      </script>
 
       <!-- Graphs -->
       <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
       <script>
+        feather.replace()
+      </script>
+      <script src="{{ asset('js/app.js') }}" defer></script>
+      <script src="{{ asset('js/rating.js') }}" defer></script>
+      <!-- <script>
+      $(function() {
+        $("#rating_star").codexworld_rating_widget({
+            starLength: '5',
+            initialValue: '',
+            callbackFunctionName: 'processRating',
+            imageDirectory: 'images/',
+            inputAttr: 'postID'
+        });
+      });
+      </script> -->
+      <!-- rating   -->
+      <!-- <script>
         var ctx = document.getElementById("myChart");
         var myChart = new Chart(ctx, {
           type: 'line',
@@ -108,6 +126,8 @@
             }
           }
         });
-      </script>
+      </script> -->
+      <!-- <script src="jquery.star-rating-svg.js"></script> -->
+
 
 </html>

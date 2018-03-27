@@ -4,9 +4,15 @@
 <div class="container-fluid">
   <div class="row">
     @include('admin.left.sidebar')
+
     <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
               <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
-                <h1 class="h2">Ana Sayfa</h1>
+                <h1 class="h2">Proje Ekle</h1>
+                @if(Session::has('success'))
+                        <div class="alert-box success">
+                            <h2>{!! Session::get('success') !!}</h2>
+                        </div>
+                    @endif
                 <div class="btn-toolbar mb-2 mb-md-0">
 
                   <div class="btn-group mr-2">
@@ -21,13 +27,19 @@
                 </div>
 
               </div>
+              <form class="" action="addProje" method="post" enctype="multipart/form-data">
+                {{ csrf_field() }}
+                <label for="">Proje Adı</label>
+                <input type="text" name="name" value="" required><br>
+                <input type="submit"value="Yükle">
+                <input type="reset" name="" value="Sıfırla">
+              </form>
 
-
+              <!-- <canvas class="my-4" id="myChart" width="900" height="380"></canvas> -->
     </main>
 
   </div>
 </div>
-
 
 
 
