@@ -7,23 +7,26 @@ use DB;
 
 class ProjeController extends Controller
 {
-    public function addProje()
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    public function addProje()//ekle view
     {
       return view("admin.addProje");
     }
-    public function add(Request $request)
+    public function add(Request $request)// ekle post al
     {
       $this->validate($request, [
           'name' => 'required',
       ]);
       $name = $request->name;
       $query = DB::SELECT('INSERT INTO proje (name) Values (?)',[$name]);
-      if ($query) {
-        return response()->json(['name' => $name]);
+      if (isset($query)) {
+        return back()->with('success','Başarılı bir şekilde eklendi');
       }
-      return back()->with('success','Proje Added successfully');
     }
-    public function display()
+    public function display()//listeleme işlemi
     {
       $query = DB::SELECT('SELECT * FROM proje');
       return view('proje',['projects' => $query]);

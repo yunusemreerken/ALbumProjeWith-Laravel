@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "14f0479d8cc47b8426a3a8d4f432fc27",
+    "content-hash": "08c365fe362297d74b66a77b3d26bf93",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -367,6 +367,48 @@
             "time": "2018-02-07T20:20:57+00:00"
         },
         {
+            "name": "ghanem/rating",
+            "version": "1.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/AbdullahGhanem/rating.git",
+                "reference": "2709cf334f0daabb2317b8f5fa8dc3d864b87e60"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/AbdullahGhanem/rating/zipball/2709cf334f0daabb2317b8f5fa8dc3d864b87e60",
+                "reference": "2709cf334f0daabb2317b8f5fa8dc3d864b87e60",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "~5.0",
+                "php": ">=5.5.9"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Ghanem\\Rating\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "abdullah ghanem",
+                    "email": "3bdullah.ghanem@gmail.com"
+                }
+            ],
+            "description": "Rating syetem for Laravel 5",
+            "keywords": [
+                "Ratable",
+                "Rating",
+                "laravel"
+            ],
+            "time": "2017-04-25T22:42:00+00:00"
+        },
+        {
             "name": "guzzlehttp/psr7",
             "version": "1.4.2",
             "source": {
@@ -590,16 +632,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v5.6.12",
+            "version": "v5.6.13",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "82d8165d1ea86bdd81ddfa1db9343fa19e7d1450"
+                "reference": "90ccb77a543ff063533083f427d5e655546afbad"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/82d8165d1ea86bdd81ddfa1db9343fa19e7d1450",
-                "reference": "82d8165d1ea86bdd81ddfa1db9343fa19e7d1450",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/90ccb77a543ff063533083f427d5e655546afbad",
+                "reference": "90ccb77a543ff063533083f427d5e655546afbad",
                 "shasum": ""
             },
             "require": {
@@ -724,7 +766,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2018-03-14T17:29:38+00:00"
+            "time": "2018-03-26T13:45:20+00:00"
         },
         {
             "name": "laravel/tinker",
@@ -3430,16 +3472,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "7.0.2",
+            "version": "7.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "e2f8aa21bc54b6ba218bdd4f9e0dac1e9bc3b4e9"
+                "reference": "536f4d853c12d8189963435088e8ff7c0daeab2e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/e2f8aa21bc54b6ba218bdd4f9e0dac1e9bc3b4e9",
-                "reference": "e2f8aa21bc54b6ba218bdd4f9e0dac1e9bc3b4e9",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/536f4d853c12d8189963435088e8ff7c0daeab2e",
+                "reference": "536f4d853c12d8189963435088e8ff7c0daeab2e",
                 "shasum": ""
             },
             "require": {
@@ -3453,7 +3495,7 @@
                 "phar-io/version": "^1.0",
                 "php": "^7.1",
                 "phpspec/prophecy": "^1.7",
-                "phpunit/php-code-coverage": "^6.0",
+                "phpunit/php-code-coverage": "^6.0.1",
                 "phpunit/php-file-iterator": "^1.4.3",
                 "phpunit/php-text-template": "^1.2.1",
                 "phpunit/php-timer": "^2.0",
@@ -3506,7 +3548,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2018-02-26T07:03:12+00:00"
+            "time": "2018-03-26T07:36:48+00:00"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -4216,6 +4258,58 @@
                 "validate"
             ],
             "time": "2018-01-29T19:49:41+00:00"
+        },
+        {
+            "name": "willvincent/laravel-rateable",
+            "version": "1.0.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/willvincent/laravel-rateable.git",
+                "reference": "ff56cc40284ddfb426945b7524c19378e439c2ba"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/willvincent/laravel-rateable/zipball/ff56cc40284ddfb426945b7524c19378e439c2ba",
+                "reference": "ff56cc40284ddfb426945b7524c19378e439c2ba",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/database": "~5.0",
+                "illuminate/support": "~5.0",
+                "php": ">=5.4"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src/commands"
+                ],
+                "psr-4": {
+                    "willvincent\\Rateable\\": "src/Rateable"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Will Vincent",
+                    "email": "tcindie@gmail.com"
+                }
+            ],
+            "description": "Allows multiple models to be rated with a fivestar like system.",
+            "keywords": [
+                "Rating",
+                "fivestar",
+                "laravel",
+                "laravel 5",
+                "rateable",
+                "vote"
+            ],
+            "time": "2017-10-10T14:21:01+00:00"
         }
     ],
     "aliases": [],

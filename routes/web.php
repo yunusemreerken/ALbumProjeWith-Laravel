@@ -10,6 +10,9 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/home', function () {
+    return view('welcome');
+});
 
 Route::get('/', function () {
     return view('welcome');
@@ -17,9 +20,9 @@ Route::get('/', function () {
 
 Route::group(['middleware' => 'auth','middleware' => 'adminCheck'], function()
 {
-  Route::get('admin','AdminController@index');
+  Route::get('admin','AdminController@index')->name('admin');
   // proje seç ve resim ekle
-  route::get('selectProje','ImageController@selectProje')->name('selectProje');
+  route::get('selectProje','ImageController@resimEkle')->name('selectProje');
   route::post('selectProje','ImageController@sec');
   // add proje
   route::get('addProje','ProjeController@addProje')->name('addProje');
@@ -35,15 +38,17 @@ Auth::routes();
 
 // Route::get('/admin','AdminController@index')->middleware(['adminCheck']);
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@index')->name('home');
 // Route::get('admingiris','AdminController@index');
 
-Route::get('/album','ImageController@display')->name('album');
+Route::get('/album','AlbumController@display')->name('album');
 
-Route::post('/starRating','ImageController@getByID')->name('starRating');
+// Route::get('/album_onaysiz','AlbumController@display2')->name('album_onaysiz');
+
+
+// Route::post('/starRating','AlbumController@galery_rating')->name('starRating');
+
+Route::post('/starRating',array('as'=>'starRating',
+  'uses'=>'AlbumController@galery_rating'));
 
 Route::get('/projeler','ProjeController@display')->name('projeler');
-
-
-
-// Route::get('/paket-detayi/{id}', 'MainPackagesController@getByID')->name('MainPackagesControllergetByID');

@@ -1,0 +1,46 @@
+@import url("//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css");
+
+/* Basic styles */
+
+  .star,row  {
+    text-align: center;
+  }
+
+  .star.rate1 {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    border: none;
+  }
+
+  .star input {
+    display: none;
+  }
+
+  .star label {
+    float: right;
+    font-size: 0;
+    color: #d9d9d9;
+  }
+
+  .star label:before {
+    content: "\f005";
+    font-family: FontAwesome;
+    font-size: 40px;
+  }
+
+  .star label:hover,
+  .star label:hover ~ label {
+    color: #fcd000;
+    transition: 0.2s;
+  }
+
+  .star input:checked ~ label {
+    color: #ccac00;
+  }
+
+  .star input:checked ~ label:hover,
+  .star input:checked ~ label:hover ~ label {
+    color: #fcd000;
+    transition: 0.2s;
+  }

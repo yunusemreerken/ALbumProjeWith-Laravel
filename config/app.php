@@ -152,6 +152,7 @@ return [
          */
         Collective\Html\HtmlServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
+        Ghanem\Rating\RatingServiceProvider::class,
 
 
         /*

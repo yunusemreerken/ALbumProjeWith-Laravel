@@ -1,13 +1,9 @@
-<head>
-  <link href="{{ asset('css/rating.css')}}" rel="stylesheet">
 
-</head>
 @extends('layouts.app')
 
 @section('content')
 <!-- <div class="container-fluid">
   <div class="row">
-
 </div>
 </div> -->
 <main role="main">
@@ -30,63 +26,62 @@
       <div class="album py-5 bg-light">
         <div class="container">
           <div class="row">
-
             <?php  $i=1; foreach ($images as $image ): ?>
               <div class="col-md-4">
                 <div class="card mb-4 box-shadow">
                   <img src="{{URL::asset('/images/'.$image->image_name)}}" style="height: 225px; width: 100%; display: block;">
                   <div class="card-body">
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                    <p class="card-text">This is a wider card with supportingext below as a natural lead-in to additional content. This content is a little bit longer.</p>
                     <div class="d-flex justify-content-between align-items-center">
                       <div class="btn-group">
 
+
+                      <div class="star">
                         <div class="row">
-                          <form action="starRating" method="post">
-                            {{ csrf_field() }}
-                            <fieldset class="rate">
-                              <input type="text" name="id" value="{{$image->id}}">
-                              <input id="rate1-star5{{$i}}" type="radio" name="rate" value="5" />
-                              <label for="rate1-star5{{$i}}" title="Excellent">5</label>
+                        <!-- Ortala -->
+                          <!-- <div class="radio"> -->
+                          <fieldset class="rate1">
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                            <input class="id" type="hidden" name="id" value="{{$image->id}}">
 
-                              <input id="rate1-star4{{$i}}" type="radio" name="rate" value="4" />
-                              <label for="rate1-star4{{$i}}" title="Good">4</label>
+                            <input class="rate" id="rate1-star5{{$i}}" type="radio" name="rate" value="5" />
+                            <label for="rate1-star5{{$i}}" title="Excellent">5</label>
 
-                              <input id="rate1-star3{{$i}}" type="radio" name="rate" value="3" />
-                              <label for="rate1-star3{{$i}}" title="Satisfactory">3</label>
+                            <input class="rate" id="rate1-star4{{$i}}" type="radio" name="rate" value="4" />
+                            <label for="rate1-star4{{$i}}" title="Good">4</label>
 
-                              <input id="rate1-star2{{$i}}" type="radio" name="rate" value="2" />
-                              <label for="rate1-star2{{$i}}" title="Bad">2</label>
+                            <input class="rate" id="rate1-star3{{$i}}" type="radio" name="rate" value="3" />
+                            <label for="rate1-star3{{$i}}" title="Satisfactory">3</label>
 
-                              <input id="rate1-star1{{$i}}" type="radio" name="rate" value="1" required/>
-                              <label for="rate1-star1{{$i}}" title="Very bad">1</label>
+                            <input class="rate" id="rate1-star2{{$i}}" type="radio" name="rate" value="2" />
+                            <label for="rate1-star2{{$i}}" title="Bad">2</label>
+
+                            <input class="rate" id="rate1-star1{{$i}}" type="radio" name="rate" value="1" required/>
+                            <label for="rate1-star1{{$i}}" title="Very bad">1</label>
                             </fieldset>
-
-
+                          </div>
                           <?php $i++; ?>
-                        </div>
-                        <input style="width:55px; height:55px;" id= "rateButon" type="submit" class="btn btn-sm btn-outline-secondary" name="" value="Oyla">
-                        <br><br>
-                        {{round($image->ort,1)}}
-                      </form>
-
-
-
+                          <!-- </div> -->
 
                       </div>
+                      </div>
+
+                      <br>
+                      <br>
+                      <div id ="result">
+                      <?php if ($image->count<0 ): ?>
+                            {{ round(($image->rate/$image->count),2)  }}
+                            <?php else: ?>
+                              0/0
+                      <?php endif; ?>
+                      </div>
+
                       <!-- <small class="text-muted">9 mins</small> -->
                     </div>
                   </div>
                 </div>
               </div>
             <?php endforeach; ?>
-
-
-
-
-
-
-
-
           </div>
         </div>
       </div>

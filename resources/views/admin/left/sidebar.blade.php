@@ -2,6 +2,12 @@
   <div class="sidebar-sticky">
     <ul class="nav flex-column">
       <li class="nav-item">
+        <a class="nav-link" href="{{route('admin')}}">
+          <span data-feather="bar-chart-2"></span>
+          Ana Sayfa
+        </a>
+      </li>
+      <li class="nav-item">
         <a class="nav-link" href="{{route('selectProje')}}">
           <span data-feather="layers"></span>
           Proje Seç ve Resim Yükle <span class="sr-only">(current)</span>
@@ -23,12 +29,6 @@
         <a class="nav-link" href="#">
           <span data-feather="users"></span>
           Resim Sil
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">
-          <span data-feather="bar-chart-2"></span>
-          Reports
         </a>
       </li>
       <li class="nav-item">

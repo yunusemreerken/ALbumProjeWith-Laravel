@@ -21,6 +21,10 @@ class ComposerStaticInit636130a31418a4f0e58aa684e6e5952d
     );
 
     public static $prefixLengthsPsr4 = array (
+        'w' => 
+        array (
+            'willvincent\\Rateable\\' => 21,
+        ),
         'p' => 
         array (
             'phpDocumentor\\Reflection\\' => 25,
@@ -89,6 +93,7 @@ class ComposerStaticInit636130a31418a4f0e58aa684e6e5952d
         'G' => 
         array (
             'GuzzleHttp\\Psr7\\' => 16,
+            'Ghanem\\Rating\\' => 14,
         ),
         'F' => 
         array (
@@ -119,6 +124,10 @@ class ComposerStaticInit636130a31418a4f0e58aa684e6e5952d
     );
 
     public static $prefixDirsPsr4 = array (
+        'willvincent\\Rateable\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/willvincent/laravel-rateable/src/Rateable',
+        ),
         'phpDocumentor\\Reflection\\' => 
         array (
             0 => __DIR__ . '/..' . '/phpdocumentor/reflection-common/src',
@@ -253,6 +262,10 @@ class ComposerStaticInit636130a31418a4f0e58aa684e6e5952d
         array (
             0 => __DIR__ . '/..' . '/guzzlehttp/psr7/src',
         ),
+        'Ghanem\\Rating\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/ghanem/rating/src',
+        ),
         'Fideloper\\Proxy\\' => 
         array (
             0 => __DIR__ . '/..' . '/fideloper/proxy/src',
@@ -342,6 +355,7 @@ class ComposerStaticInit636130a31418a4f0e58aa684e6e5952d
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Http\\Controllers\\AdminController' => __DIR__ . '/../..' . '/app/Http/Controllers/AdminController.php',
+        'App\\Http\\Controllers\\AlbumController' => __DIR__ . '/../..' . '/app/Http/Controllers/AlbumController.php',
         'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
         'App\\Http\\Controllers\\Auth\\LoginController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/LoginController.php',
         'App\\Http\\Controllers\\Auth\\RegisterController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/RegisterController.php',
@@ -349,6 +363,7 @@ class ComposerStaticInit636130a31418a4f0e58aa684e6e5952d
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
         'App\\Http\\Controllers\\ImageController' => __DIR__ . '/../..' . '/app/Http/Controllers/ImageController.php',
+        'App\\Http\\Controllers\\ProjeController' => __DIR__ . '/../..' . '/app/Http/Controllers/ProjeController.php',
         'App\\Http\\Controllers\\UploadImageController' => __DIR__ . '/../..' . '/app/Http/Controllers/UploadImageController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\EncryptCookies' => __DIR__ . '/../..' . '/app/Http/Middleware/EncryptCookies.php',
@@ -924,6 +939,9 @@ class ComposerStaticInit636130a31418a4f0e58aa684e6e5952d
         'File_Iterator' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Iterator.php',
         'File_Iterator_Facade' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Facade.php',
         'File_Iterator_Factory' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Factory.php',
+        'Ghanem\\Rating\\Commands\\MigrationCommand' => __DIR__ . '/..' . '/ghanem/rating/src/Commands/MigrationCommand.php',
+        'Ghanem\\Rating\\Models\\Rating' => __DIR__ . '/..' . '/ghanem/rating/src/Models/Rating.php',
+        'Ghanem\\Rating\\Traits\\Ratingable' => __DIR__ . '/..' . '/ghanem/rating/src/Traits/Ratingable.php',
         'GuzzleHttp\\Psr7\\AppendStream' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/AppendStream.php',
         'GuzzleHttp\\Psr7\\BufferStream' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/BufferStream.php',
         'GuzzleHttp\\Psr7\\CachingStream' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/CachingStream.php',
@@ -1401,11 +1419,13 @@ class ComposerStaticInit636130a31418a4f0e58aa684e6e5952d
         'Illuminate\\Foundation\\Console\\TestMakeCommand' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Foundation/Console/TestMakeCommand.php',
         'Illuminate\\Foundation\\Console\\UpCommand' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Foundation/Console/UpCommand.php',
         'Illuminate\\Foundation\\Console\\VendorPublishCommand' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Foundation/Console/VendorPublishCommand.php',
+        'Illuminate\\Foundation\\Console\\ViewCacheCommand' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Foundation/Console/ViewCacheCommand.php',
         'Illuminate\\Foundation\\Console\\ViewClearCommand' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Foundation/Console/ViewClearCommand.php',
         'Illuminate\\Foundation\\EnvironmentDetector' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Foundation/EnvironmentDetector.php',
         'Illuminate\\Foundation\\Events\\Dispatchable' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Foundation/Events/Dispatchable.php',
         'Illuminate\\Foundation\\Events\\LocaleUpdated' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Foundation/Events/LocaleUpdated.php',
         'Illuminate\\Foundation\\Exceptions\\Handler' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php',
+        'Illuminate\\Foundation\\Exceptions\\WhoopsHandler' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Foundation/Exceptions/WhoopsHandler.php',
         'Illuminate\\Foundation\\Http\\Events\\RequestHandled' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Foundation/Http/Events/RequestHandled.php',
         'Illuminate\\Foundation\\Http\\Exceptions\\MaintenanceModeException' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Foundation/Http/Exceptions/MaintenanceModeException.php',
         'Illuminate\\Foundation\\Http\\FormRequest' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Foundation/Http/FormRequest.php',
@@ -1437,6 +1457,7 @@ class ComposerStaticInit636130a31418a4f0e58aa684e6e5952d
         'Illuminate\\Foundation\\Testing\\Concerns\\MakesHttpRequests' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Foundation/Testing/Concerns/MakesHttpRequests.php',
         'Illuminate\\Foundation\\Testing\\Concerns\\MocksApplicationServices' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Foundation/Testing/Concerns/MocksApplicationServices.php',
         'Illuminate\\Foundation\\Testing\\Constraints\\HasInDatabase' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Foundation/Testing/Constraints/HasInDatabase.php',
+        'Illuminate\\Foundation\\Testing\\Constraints\\SeeInOrder' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Foundation/Testing/Constraints/SeeInOrder.php',
         'Illuminate\\Foundation\\Testing\\Constraints\\SoftDeletedInDatabase' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Foundation/Testing/Constraints/SoftDeletedInDatabase.php',
         'Illuminate\\Foundation\\Testing\\DatabaseMigrations' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Foundation/Testing/DatabaseMigrations.php',
         'Illuminate\\Foundation\\Testing\\DatabaseTransactions' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Foundation/Testing/DatabaseTransactions.php',
@@ -3801,6 +3822,10 @@ class ComposerStaticInit636130a31418a4f0e58aa684e6e5952d
         'phpDocumentor\\Reflection\\Types\\String_' => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src/Types/String_.php',
         'phpDocumentor\\Reflection\\Types\\This' => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src/Types/This.php',
         'phpDocumentor\\Reflection\\Types\\Void_' => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src/Types/Void_.php',
+        'willvincent\\Rateable\\MigrationCommand' => __DIR__ . '/..' . '/willvincent/laravel-rateable/src/commands/MigrationCommand.php',
+        'willvincent\\Rateable\\Rateable' => __DIR__ . '/..' . '/willvincent/laravel-rateable/src/Rateable/Rateable.php',
+        'willvincent\\Rateable\\RateableServiceProvider' => __DIR__ . '/..' . '/willvincent/laravel-rateable/src/Rateable/RateableServiceProvider.php',
+        'willvincent\\Rateable\\Rating' => __DIR__ . '/..' . '/willvincent/laravel-rateable/src/Rateable/Rating.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
