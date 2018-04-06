@@ -41,5 +41,12 @@ class ImageController extends Controller
     public function delete(){
       return "sil";
     }
+    public function imageResize($imageResourceId,$width,$height) {
+      $targetWidth =200;
+      $targetHeight =200;
+      $targetLayer=imagecreatetruecolor($targetWidth,$targetHeight);
+      imagecopyresampled($targetLayer,$imageResourceId,0,0,0,0,$targetWidth,$targetHeight, $width,$height);
+      return $targetLayer;
+    }
 
 }

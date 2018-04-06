@@ -10,13 +10,9 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/home', function () {
-    return view('welcome');
-});
+Route::get('/home','ProjeController@display');
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/','ProjeController@display');
 
 Route::group(['middleware' => 'auth','middleware' => 'adminCheck'], function()
 {
@@ -45,10 +41,10 @@ Route::get('/album','AlbumController@display')->name('album');
 
 // Route::get('/album_onaysiz','AlbumController@display2')->name('album_onaysiz');
 
-
 // Route::post('/starRating','AlbumController@galery_rating')->name('starRating');
 
 Route::post('/starRating',array('as'=>'starRating',
   'uses'=>'AlbumController@galery_rating'));
 
 Route::get('/projeler','ProjeController@display')->name('projeler');
+Route::post('galery','ProjeController@galery')->name('galery');

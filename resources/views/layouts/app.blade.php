@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="{{asset('css/dashboard.css')}}">
     <link rel="stylesheet" href="{{ asset('css/app.css')}}">
     <link rel="stylesheet" href="{{asset('css/star.css')}}">
+    <link rel="stylesheet" href="{{asset('css/lightbox.css')}}">
     <!-- Bootstrap CSS CDN -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <!-- Our Custom CSS -->
@@ -78,32 +79,85 @@
       <!-- star js -->
 
       <!-- ajax -->
-      <script type="text/javascript">
+      <script>
       $.ajaxSetup({
           headers: {
               'X-CSRF-TOKEN': $('input[name="_token"]').val()
           }
       });
-      $(document).ready(function() {
-        $('.rate').click('rate', function (e) {
-            e.preventDefault();
-            var rate = $(this).val();
-            // console.log(rate);
-            var id = $('.id').val();
-            console.log(id);
 
 
-            $.ajax({
-                type: "POST",
-                url: '{{route("starRating")}}',
-                data: {'_token': $('input[name="_token"]').val(),rate:rate,id:id},
-                success: function( data ) {
+        function tiklandi(obj,value,imageId,i){
+          // console.log(obj);
+          $.ajax({
+              type: "POST",
+              url: '{{route("starRating")}}',
+              data: {'_token': $('input[name="_token"]').val(),rate:value,id:imageId,i:i},
 
-                    $("#result").append(data);
-                }
-            });
-        });
-      });
+              success: function(data) {
+                $("#result".concat(i)).empty();
+                  $("#result".concat(i)).append(data);
+              }
+          });
+        };
+
+
+
+      // $(document).ready(function (){
+      //   $('.rate').click('rate', function (e) {
+      //       e.preventDefault();
+      //       var rate = $(this).val();
+      //       // console.log(rate);
+      //       for (var i = 1; i < array.length; i++) {
+      //         array[i]
+      //       }
+      //       var i = $(this).val();
+      //       var id = $("input[name='id1']").val();
+      //
+      //       console.log(id);
+      //
+      //
+      //
+      //   });
+      // });
+      </script>
+      <script>
+      function openModal() {
+        document.getElementById('myModal').style.display = "block";
+      }
+
+      function closeModal() {
+        document.getElementById('myModal').style.display = "none";
+      }
+
+      var slideIndex = 1;
+      showSlides(slideIndex);
+
+      function plusSlides(n) {
+        showSlides(slideIndex += n);
+      }
+
+      function currentSlide(n) {
+        showSlides(slideIndex = n);
+      }
+
+      function showSlides(n) {
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
+        var dots = document.getElementsByClassName("demo");
+        var captionText = document.getElementById("caption");
+        if (n > slides.length) {slideIndex = 1}
+        if (n < 1) {slideIndex = slides.length}
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex-1].style.display = "block";
+        dots[slideIndex-1].className += " active";
+        captionText.innerHTML = dots[slideIndex-1].alt;
+      }
       </script>
 
 </html>

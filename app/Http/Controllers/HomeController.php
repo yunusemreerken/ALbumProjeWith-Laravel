@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use DB;
 class HomeController extends Controller
 {
     /**
@@ -13,7 +13,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        // $this->middleware('auth');
+         $this->middleware('auth');
     }
 
     /**
@@ -23,6 +23,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('welcome');
+        $query = DB::SELECT('SELECT proje.name as proje_name,proje.id as id
+          from proje
+          order by proje.id desc');
+       return view('proje',['projects'=>$query]);
     }
+
 }
