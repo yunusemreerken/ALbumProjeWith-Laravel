@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit636130a31418a4f0e58aa684e6e5952d
+class ComposerStaticInitf93d4fe59bd2429f455ec29b4f51680e
 {
     public static $files = array (
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
@@ -21,10 +21,6 @@ class ComposerStaticInit636130a31418a4f0e58aa684e6e5952d
     );
 
     public static $prefixLengthsPsr4 = array (
-        'w' => 
-        array (
-            'willvincent\\Rateable\\' => 21,
-        ),
         'p' => 
         array (
             'phpDocumentor\\Reflection\\' => 25,
@@ -124,10 +120,6 @@ class ComposerStaticInit636130a31418a4f0e58aa684e6e5952d
     );
 
     public static $prefixDirsPsr4 = array (
-        'willvincent\\Rateable\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/willvincent/laravel-rateable/src/Rateable',
-        ),
         'phpDocumentor\\Reflection\\' => 
         array (
             0 => __DIR__ . '/..' . '/phpdocumentor/reflection-common/src',
@@ -364,7 +356,6 @@ class ComposerStaticInit636130a31418a4f0e58aa684e6e5952d
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
         'App\\Http\\Controllers\\ImageController' => __DIR__ . '/../..' . '/app/Http/Controllers/ImageController.php',
         'App\\Http\\Controllers\\ProjeController' => __DIR__ . '/../..' . '/app/Http/Controllers/ProjeController.php',
-        'App\\Http\\Controllers\\UploadImageController' => __DIR__ . '/../..' . '/app/Http/Controllers/UploadImageController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\EncryptCookies' => __DIR__ . '/../..' . '/app/Http/Middleware/EncryptCookies.php',
         'App\\Http\\Middleware\\RedirectIfAuthenticated' => __DIR__ . '/../..' . '/app/Http/Middleware/RedirectIfAuthenticated.php',
@@ -2258,6 +2249,7 @@ class ComposerStaticInit636130a31418a4f0e58aa684e6e5952d
         'PHPUnit\\Framework\\MockObject\\Matcher\\AnyInvokedCount' => __DIR__ . '/..' . '/phpunit/phpunit-mock-objects/src/Matcher/AnyInvokedCount.php',
         'PHPUnit\\Framework\\MockObject\\Matcher\\AnyParameters' => __DIR__ . '/..' . '/phpunit/phpunit-mock-objects/src/Matcher/AnyParameters.php',
         'PHPUnit\\Framework\\MockObject\\Matcher\\ConsecutiveParameters' => __DIR__ . '/..' . '/phpunit/phpunit-mock-objects/src/Matcher/ConsecutiveParameters.php',
+        'PHPUnit\\Framework\\MockObject\\Matcher\\DeferredError' => __DIR__ . '/..' . '/phpunit/phpunit-mock-objects/src/Matcher/DeferredError.php',
         'PHPUnit\\Framework\\MockObject\\Matcher\\Invocation' => __DIR__ . '/..' . '/phpunit/phpunit-mock-objects/src/Matcher/Invocation.php',
         'PHPUnit\\Framework\\MockObject\\Matcher\\InvokedAtIndex' => __DIR__ . '/..' . '/phpunit/phpunit-mock-objects/src/Matcher/InvokedAtIndex.php',
         'PHPUnit\\Framework\\MockObject\\Matcher\\InvokedAtLeastCount' => __DIR__ . '/..' . '/phpunit/phpunit-mock-objects/src/Matcher/InvokedAtLeastCount.php',
@@ -3822,19 +3814,15 @@ class ComposerStaticInit636130a31418a4f0e58aa684e6e5952d
         'phpDocumentor\\Reflection\\Types\\String_' => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src/Types/String_.php',
         'phpDocumentor\\Reflection\\Types\\This' => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src/Types/This.php',
         'phpDocumentor\\Reflection\\Types\\Void_' => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src/Types/Void_.php',
-        'willvincent\\Rateable\\MigrationCommand' => __DIR__ . '/..' . '/willvincent/laravel-rateable/src/commands/MigrationCommand.php',
-        'willvincent\\Rateable\\Rateable' => __DIR__ . '/..' . '/willvincent/laravel-rateable/src/Rateable/Rateable.php',
-        'willvincent\\Rateable\\RateableServiceProvider' => __DIR__ . '/..' . '/willvincent/laravel-rateable/src/Rateable/RateableServiceProvider.php',
-        'willvincent\\Rateable\\Rating' => __DIR__ . '/..' . '/willvincent/laravel-rateable/src/Rateable/Rating.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit636130a31418a4f0e58aa684e6e5952d::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit636130a31418a4f0e58aa684e6e5952d::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInit636130a31418a4f0e58aa684e6e5952d::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInit636130a31418a4f0e58aa684e6e5952d::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInitf93d4fe59bd2429f455ec29b4f51680e::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInitf93d4fe59bd2429f455ec29b4f51680e::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInitf93d4fe59bd2429f455ec29b4f51680e::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInitf93d4fe59bd2429f455ec29b4f51680e::$classMap;
 
         }, null, ClassLoader::class);
     }
