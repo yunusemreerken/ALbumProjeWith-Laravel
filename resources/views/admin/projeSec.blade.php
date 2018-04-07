@@ -28,10 +28,10 @@
               <form class="" action="selectProje" method="post" enctype="multipart/form-data">
                 {{ csrf_field() }}
                 <label for="">Proje Seç:</label>
-                <select class="" name="proje_id">
+                <select class="" name="proje_id" required>
                   <option value=""></option>
                   <?php foreach ($proje as $key): ?>
-                      <option name ="proje_id" value="{{($key->id)}}">{{$key->name}}</option>
+                      <option name ="proje_id" value="{{($key->id)}}" >{{$key->name}}</option>
                   <?php endforeach; ?>
                 </select><br>
                 <!-- <label for="">Proje Adı</label>

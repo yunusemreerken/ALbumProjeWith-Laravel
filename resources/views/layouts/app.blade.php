@@ -17,7 +17,9 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <!-- Our Custom CSS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js">
 
+    </script>
 
 
 
@@ -77,7 +79,9 @@
       <!-- yeni star rating -->
       <!-- jquery -->
       <!-- star js -->
+      <script type="text/javascript" src="{{asset('js/star.js')}}">
 
+      </script>
       <!-- ajax -->
       <script>
       $.ajaxSetup({

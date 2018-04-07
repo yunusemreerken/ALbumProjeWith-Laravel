@@ -9,10 +9,18 @@
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
-*/
-Route::get('/home','ProjeController@display');
 
-Route::get('/','ProjeController@display');
+*/
+Route::get('/home','denemeController@index')->name('home');
+
+Route::get('/','denemeController@index')->name('home');
+Route::post('/starRating','AlbumController@galery_rating')->name('starRating');
+
+Route::post('/starRating',array('as'=>'starRating',
+'uses'=>'AlbumController@galery_rating'));
+
+Auth::routes();
+
 
 Route::group(['middleware' => 'auth','middleware' => 'adminCheck'], function()
 {
@@ -30,21 +38,18 @@ Route::group(['middleware' => 'auth','middleware' => 'adminCheck'], function()
   //admin user değişikliği yapılacak
 });
 
-Auth::routes();
 
 // Route::get('/admin','AdminController@index')->middleware(['adminCheck']);
 
-Route::get('/', 'HomeController@index')->name('home');
+// Route::get('/', 'HomeController@index')->name('home');
 // Route::get('admingiris','AdminController@index');
-
-Route::get('/album','AlbumController@display')->name('album');
 
 // Route::get('/album_onaysiz','AlbumController@display2')->name('album_onaysiz');
 
-// Route::post('/starRating','AlbumController@galery_rating')->name('starRating');
 
-Route::post('/starRating',array('as'=>'starRating',
-  'uses'=>'AlbumController@galery_rating'));
+// Route::get('/projeler','ProjeController@display')->name('projeler');
 
-Route::get('/projeler','ProjeController@display')->name('projeler');
-Route::post('galery','ProjeController@galery')->name('galery');
+
+// Route::get('/album','AlbumController@display')->name('album');
+// Route::post('galery','ProjeController@galery')->name('galery');
+// Route::get('galeryDetay','ProjeController@galeryDetay')->name('galeryDatay');

@@ -25,6 +25,7 @@ class ImageController extends Controller
     public function sec(Request $request)
     {
       $this->validate($request, [
+          'proje_id'=>'required',
           'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
       ]);
       $user_id = Auth::user()->id;

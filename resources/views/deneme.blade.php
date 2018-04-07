@@ -3,11 +3,10 @@
 
 @section('content')
 <br>
-<?php $k=1; foreach ($images as $image): ?>
+<?php foreach ($projeler as $proje): ?>
 
 <main role="main" class="container">
-    <h1 class="mt-5">{{$image->proje_name}} </h1>
-
+    <h1 class="mt-5">{{$proje->proje_name}} </h1>
     <p class="header-right">puan</p>
   <hr>
       <div class="album py-5 bg-light">
@@ -17,7 +16,6 @@
               <?php $i++; ?>
               <div class="col-md-4">
                 <div class="card mb-4 box-shadow">
-                  <!-- <img src="{{URL::asset('/images/'.$image->image_name)}}" style="height: 225px; width: 100%; display: block;"> -->
                   <div class="row2">
                     <div class="column">
                       <img src="{{URL::asset('/images/'.$image->image_name)}}" style="height: 225px; width: 100%; display: block;" onclick="openModal();currentSlide(1)" class="hover-shadow cursor" >
@@ -51,9 +49,25 @@
                             <label for="rate1-star1{{$i}}" title="Very bad">1</label>
                             </fieldset>
                           </div>
+                          <div class="star-rating">
+                            <div class="back-stars">
+                              <i class="fa fa-star" aria-hidden="true"></i>
+                              <i class="fa fa-star" aria-hidden="true"></i>
+                              <i class="fa fa-star" aria-hidden="true"></i>
+                              <i class="fa fa-star" aria-hidden="true"></i>
+                              <i class="fa fa-star" aria-hidden="true"></i>
+                            </div>
+                            <div class="front-stars" style="width: 93%">
+                              <i class="fa fa-star" aria-hidden="true"></i>
+                              <i class="fa fa-star" aria-hidden="true"></i>
+                              <i class="fa fa-star" aria-hidden="true"></i>
+                              <i class="fa fa-star" aria-hidden="true"></i>
+                              <i class="fa fa-star" aria-hidden="true"></i>
+                            </div>
                           </div>
-
+                          </div>
                       </div>
+                      <div class="star-ratings-sprite"><span style="width:70px" class="star-ratings-sprite-rating"></span></div>
                       </div>
 
                       <br>
@@ -108,4 +122,7 @@
           </div>
         </div>
       </div>
+
+      <script src="https://use.fontawesome.com/f4e64b7c17.js"></script>
+
 @endsection

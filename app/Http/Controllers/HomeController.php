@@ -23,10 +23,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $query = DB::SELECT('SELECT proje.name as proje_name,proje.id as id
-          from proje
-          order by proje.id desc');
-       return view('proje',['projects'=>$query]);
+        $query = DB::SELECT('SELECT proje.name as proje_name from proje order by proje.id desc');
+       return view('album',['images'=>$query]);
     }
 
 }

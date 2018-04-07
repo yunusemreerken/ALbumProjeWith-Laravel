@@ -8,12 +8,12 @@
   <div class="container">
         <div class="jumbotron mt-3">
           <h1>{{$project->proje_name}}</h1>
-          <p class="lead">This example is a quick exercise to illustrate how the bottom navbar works.</p>
+          <!-- <p class="lead">This example is a quick exercise to illustrate how the bottom navbar works.</p> -->
           <form class="" action="{{route('galery')}}" method="post">
             @csrf
             <input type="hidden" name="project_id" value="{{$project->id}}">
             <img src="" alt="">
-            <input class="btn btn-lg btn-primary" type="submit" name="submit" value="Detay Gör">
+            <input class="btn btn-xs btn-primary" type="submit" name="submit" value="Detay Gör">
           </form>
         </div>
   </div>
