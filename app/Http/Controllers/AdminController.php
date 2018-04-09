@@ -26,4 +26,14 @@ class AdminController extends Controller
     {
         return view('admin.index');
     }
+    public function projeEkle()
+    {
+        return view('admin.proje-ekle');
+    }
+    public function projeDetay()
+    {
+        return view('admin.proje-detay');
+    }
+
+
 }

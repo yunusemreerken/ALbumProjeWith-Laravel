@@ -24,19 +24,23 @@ Auth::routes();
 
 Route::group(['middleware' => 'auth','middleware' => 'adminCheck'], function()
 {
-  Route::get('admin','AdminController@index')->name('admin');
+  route::get('admin','AdminController@index')->name('admin');
+  route::get('projeEkle','AdminController@projeEkle')->name('projeEkle');
+  route::get('projeDetay','AdminController@projeDetay')->name('projeDetay');
+  // Route::get('admin','AdminController@index')->name('admin');
   // proje seç ve resim ekle
-  route::get('selectProje','ImageController@resimEkle')->name('selectProje');
-  route::post('selectProje','ImageController@sec');
-  // add proje
-  route::get('addProje','ProjeController@addProje')->name('addProje');
-  route::post('addProje','ProjeController@add');
-  // delete image
-  route::get('deleteImage','ImageController@delete')->name('deleteImage');
-  // Route::get('deleteImage','UploadImageController');
+  // route::get('selectProje','ImageController@resimEkle')->name('selectProje');
+  // route::post('selectProje','ImageController@sec');
+  // // add proje
+  // route::get('addProje','ProjeController@addProje')->name('addProje');
+  // route::post('addProje','ProjeController@add');
+  // // delete image
+  // route::get('deleteImage','ImageController@delete')->name('deleteImage');
+  // // Route::get('deleteImage','UploadImageController');
 
   //admin user değişikliği yapılacak
 });
+route::get('projeler','HomeController@index')->name('projeler');
 
 
 // Route::get('/admin','AdminController@index')->middleware(['adminCheck']);
