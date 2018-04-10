@@ -27,12 +27,14 @@
                             </div>
                           </th>
                           <th>Proje Adı</th>
-                          <th>Fotolar</th>
+                          <th>Fotoğraf Sayısı</th>
                           <th>Puan</th>
                           <th>İşlem</th>
                       </tr>
                       </thead>
                       <tbody>
+                        <?php foreach ($projeler as $proje): ?>
+
                       <tr>
                           <td>
                             <div class="checkboxall">
@@ -41,30 +43,38 @@
                           </td>
 
                           <td>
-                              <h5 class="m-0 font-weight-normal">proje 1</h5>
-                              <p class="mb-0 text-muted"><small>Member Since 2017</small></p>
+                              <h5 class="m-0 font-weight-normal">{{$proje->proje_name}}</h5>
+                              <p class="mb-0 text-muted"><small></small></p>
                           </td>
 
                           <td>
-                              281
+                              {{$proje->resimlercount}}
                           </td>
 
                           <td>
-                              0.00816117
+                            <?php if ($proje->rate !== null): ?>
+                              {{round($proje->rate/$proje->_count,2)}}
+                              <?php else: ?>
+                                 0
+
+                            <?php endif; ?>
                           </td>
 
 
 
                           <td>
+                            <form class="" action="{{route('detay')}}" method="post">
+                              @csrf
                               <label class="btn btn-sm switch">
-                                  <input type="checkbox">
-                                  <span class="slider round" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Aktif/Pasif"></span>
+                                <input type="checkbox">
+                                <span class="slider round" name="aktif" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Aktif/Pasif"></span>
                               </label>
-                              <a href="{{route('projeDetay')}}" class="btn btn-sm btn-custom" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Düzenle"><i class="mdi mdi-tooltip-edit"></i></a>
-                              <a href="#" class="btn btn-sm btn-danger" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Sil"><i class="mdi mdi-delete"></i></a>
-
+                              <button type="submit" name="id" value="{{$proje->proje_id}}" class="btn btn-sm btn-custom" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Düzenle"><i class="mdi mdi-tooltip-edit"></i></button>
+                              <button type="submit" name="delete" value="sil" class="btn btn-sm btn-danger" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Sil"><i class="mdi mdi-delete"></i></button>
+                            </form>
                           </td>
                       </tr>
+                    <?php endforeach; ?>
 
                       </tbody>
                   </table>

@@ -25,12 +25,11 @@
                                   </form>
 
                                   <form action="#" class="dropzone dz-clickable" id="dropzone">
-
-
-                                  <div class="dz-default dz-message"><span class=" mdi mdi-plus-circle-outline " ></span></div></form>
-                                  <div class="clearfix text-right mt-3">
-                                      <button type="button" class="btn btn-custom waves-effect waves-light">Ekle</button>
-                                  </div>
+                                    <div class="dz-default dz-message"><span class=" mdi mdi-plus-circle-outline " ></span></div></form>
+                                    <div class="clearfix text-right mt-3">
+                                        <!-- <input type="submit" name="ekle" value=""> -->
+                                        <button type="button" class="btn btn-custom waves-effect waves-light">Ekle</button>
+                                    </div>
 
                               </div>
                           </div>

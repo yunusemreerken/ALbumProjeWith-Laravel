@@ -23,6 +23,11 @@
         <!-- <link rel="stylesheet" href="{{URL::asset('css/star.css')}}"> -->
         <script src="{{URL::asset('assets/js/modernizr.min.js')}}"></script>
 
+        <style type="text/css">
+        .portfolio-masonry-box:hover .portfolio-masonry-detail{
+          padding: 20px 20px 90px 20px;
+        }
+        </style>
 
         <style type="text/css">
         .switch {
@@ -32,6 +37,7 @@
           width: 50px;
           height: 30px;
         }
+
 
         .switch input {display:none;}
 
@@ -163,6 +169,48 @@
         <!-- App js -->
         <script src="{{URL::asset('assets/js/jquery.core.js')}}"></script>
         <script src="{{URL::asset('assets/js/jquery.app.js')}}"></script>
+        <script>
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('input[name="_token"]').val()
+            }
+        });
+
+
+          function gonder(obj,value,imageId,i){
+            // console.log(obj);
+            $.ajax({
+                type: "POST",
+                url: '{{route("starRating")}}',
+                data: {'_token': $('input[name="_token"]').val(),rate:value,id:imageId,i:i},
+
+                success: function(data) {
+                  $("#result".concat(i)).empty();
+                    $("#result".concat(i)).append(data);
+                }
+            });
+          };
+
+
+
+        // $(document).ready(function (){
+        //   $('.rate').click('rate', function (e) {
+        //       e.preventDefault();
+        //       var rate = $(this).val();
+        //       // console.log(rate);
+        //       for (var i = 1; i < array.length; i++) {
+        //         array[i]
+        //       }
+        //       var i = $(this).val();
+        //       var id = $("input[name='id1']").val();
+        //
+        //       console.log(id);
+        //
+        //
+        //
+        //   });
+        // });
+        </script>
         <script type="text/javascript">
             $(window).on('load', function () {
                 var $container = $('.portfolioContainer');

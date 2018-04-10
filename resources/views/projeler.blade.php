@@ -3,7 +3,10 @@
 @section('content')
 
 <div class="container-fluid">
+                        <?php foreach ($projeler as $proje ): ?>
+                          {{$proje->image_name}}
 
+                        <?php endforeach; ?>
                         <!-- SECTION FILTER
                         ================================================== -->
                         <div class="row">
@@ -128,7 +131,7 @@
                                               </div>
 
                                           </div>
-                                          
+
 
 
 

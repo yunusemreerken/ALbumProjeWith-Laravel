@@ -26,7 +26,9 @@ Route::group(['middleware' => 'auth','middleware' => 'adminCheck'], function()
 {
   route::get('admin','AdminController@index')->name('admin');
   route::get('projeEkle','AdminController@projeEkle')->name('projeEkle');
-  route::get('projeDetay','AdminController@projeDetay')->name('projeDetay');
+  route::post('projeEkle','AdminController@ekle')->name('ekle');
+  // route::get('projeDetay','AdminController@projeDetay')->name('projeDetay');
+  route::post('detay','AdminController@detay')->name('detay');
   // Route::get('admin','AdminController@index')->name('admin');
   // proje seç ve resim ekle
   // route::get('selectProje','ImageController@resimEkle')->name('selectProje');
@@ -41,6 +43,7 @@ Route::group(['middleware' => 'auth','middleware' => 'adminCheck'], function()
   //admin user değişikliği yapılacak
 });
 route::get('projeler','HomeController@index')->name('projeler');
+
 
 
 // Route::get('/admin','AdminController@index')->middleware(['adminCheck']);
