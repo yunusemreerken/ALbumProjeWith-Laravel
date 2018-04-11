@@ -53,7 +53,7 @@
 
                           <td>
                             <?php if ($proje->rate !== null): ?>
-                              {{round($proje->rate/$proje->_count,2)}}
+                              {{round($proje->rate/$proje->resimlercount,2)}}
                               <?php else: ?>
                                  0
 

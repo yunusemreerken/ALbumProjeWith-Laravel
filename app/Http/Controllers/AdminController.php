@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 // use Auth;
 use DB;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\Input;
+use Auth;
+use File;
 class AdminController extends Controller
 {
     /**
@@ -36,6 +40,12 @@ class AdminController extends Controller
     {
         return view('admin.proje-ekle');
     }
+    public function ekle(Request $request)
+    {
+      // $file = Input::get('files');
+        $img    = $request->all(); //access dropzone files
+        dd($img);
+    }
     public function detay(Request $request)
     {
         if($request->delete!=='sil')
@@ -52,6 +62,7 @@ class AdminController extends Controller
         echo $request->delete;
 
     }
+
 
 
 }

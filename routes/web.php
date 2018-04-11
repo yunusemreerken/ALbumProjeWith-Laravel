@@ -29,6 +29,9 @@ Route::group(['middleware' => 'auth','middleware' => 'adminCheck'], function()
   route::post('projeEkle','AdminController@ekle')->name('ekle');
   // route::get('projeDetay','AdminController@projeDetay')->name('projeDetay');
   route::post('detay','AdminController@detay')->name('detay');
+  Route::post('upload', ['as' => 'upload-post', 'uses' =>'ImageController@postUpload']);
+
+Route::post('upload/delete', ['as' => 'upload-remove', 'uses' =>'ImageController@deleteUpload']);
   // Route::get('admin','AdminController@index')->name('admin');
   // proje seç ve resim ekle
   // route::get('selectProje','ImageController@resimEkle')->name('selectProje');
@@ -44,8 +47,26 @@ Route::group(['middleware' => 'auth','middleware' => 'adminCheck'], function()
 });
 route::get('projeler','HomeController@index')->name('projeler');
 
+Route::get('dropzone2', 'HomeController@dropzone');
+
+Route::post('dropzone/store', ['as'=>'dropzone.store','uses'=>'HomeController@dropzoneStore']);
 
 
+Route::post('/upload', function () {
+    //check if file was uploaded
+    if (Request::hasFile('file'))
+    {
+        //houston we have a file!
+        $file = Request::file('file');
+
+        //move it to our public folder and rename it to $name
+        Request::file('file')->move('images', 'insert_file_name.'.$file->getClientOriginalExtension());
+        echo 'file uploaded!';
+        var_dump($file);
+    }else{
+        echo 'no file, no bueno';
+    }
+});
 // Route::get('/admin','AdminController@index')->middleware(['adminCheck']);
 
 // Route::get('/', 'HomeController@index')->name('home');
