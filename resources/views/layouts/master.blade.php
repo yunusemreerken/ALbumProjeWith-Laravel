@@ -17,15 +17,34 @@
         <link href="{{URL::asset('assets/css/metismenu.min.css')}}" rel="stylesheet" type="text/css" />
         <link href="{{URL::asset('assets/css/style.css')}}" rel="stylesheet" type="text/css" />
 
-        <link href="{{URL::asset('plugins/bootstrap-fileupload/bootstrap-fileupload.css')}}" rel="stylesheet">
-        <link href="{{URL::asset('plugins/dropzone/dropzone.css')}}" rel="stylesheet" type="text/css">
         <link rel="stylesheet" href="{{URL::asset('plugins/magnific-popup/css/magnific-popup.css')}}">
         <!-- <link rel="stylesheet" href="{{URL::asset('css/star.css')}}"> -->
         <script src="{{URL::asset('assets/js/modernizr.min.js')}}"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.4.0/dropzone.css">
 
-        <script src="https://rawgit.com/enyo/dropzone/master/dist/dropzone.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.4.0/dropzone.js"></script>
+        
+<script>
+var form = document.getElementById('upload');
+var request = new XMLHttpRequest();
 
-<link rel="stylesheet" href="https://rawgit.com/enyo/dropzone/master/dist/dropzone.css">
+form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var formdata = new FormData(form);
+
+    request.open('post', '/upload');
+    request.addEventListener("load", transferComplete);
+    request.send(formdata);
+
+});
+
+function transferComplete(data){
+    response = JSON.parse(data.currentTarget.response);
+    if(response.success){
+        document.getElementById('message').innerHTML = "Successfully Uploaded Files!";
+    }
+}
+</script>
 
         <style type="text/css">
         .portfolio-masonry-box:hover .portfolio-masonry-detail{
@@ -132,9 +151,6 @@
 
         </div>
         <!-- END wrapper -->
-
-
-
         <!-- jQuery  -->
         <script src="{{URL::asset('assets/js/jquery.min.js')}}"></script>
         <script src="{{URL::asset('assets/js/popper.min.js')}}"></script>
@@ -149,28 +165,6 @@
         <script type="text/javascript" src="{{URL::asset('plugins/magnific-popup/js/jquery.magnific-popup.min.js')}}"></script>
         <script src="{{URL::asset('plugins/raty-fa/jquery.raty-fa.js')}}"></script>
         <script src="{{URL::asset('assets/pages/jquery.rating.js')}}"></script>
-        <script src="{{url::asset('js/clipboard.min.js')}}"></script>
-        <!-- <script type="{{URL::asset('js/star.js')}}"></script> -->
-        <script src="{{url::asset('plugins/dropzone/dropzone.js')}}"></script>
-        <script src="{{url::asset('/plugins/dropzone/dropzone.js')}}"></script>
-        <script src="{{url::asset('/assets/js/dropzone-config.js')}}"></script>
-
-
-        <!-- Flot chart -->
-        <!-- <script src="../plugins/flot-chart/jquery.flot.min.js"></script> -->
-        <!-- <script src="../plugins/flot-chart/jquery.flot.time.js"></script> -->
-        <!-- <script src="../plugins/flot-chart/jquery.flot.tooltip.min.js"></script> -->
-        <!-- <script src="../plugins/flot-chart/jquery.flot.resize.js"></script> -->
-        <!-- <script src="../plugins/flot-chart/jquery.flot.pie.js"></script> -->
-        <!-- <script src="../plugins/flot-chart/jquery.flot.crosshair.js"></script> -->
-        <!-- <script src="../plugins/flot-chart/curvedLines.js"></script> -->
-        <!-- <script src="../plugins/flot-chart/jquery.flot.axislabels.js"></script> -->
-
-        <!-- KNOB JS -->
-        <!--[if IE]>
-        <script type="text/javascript" src="../plugins/jquery-knob/excanvas.js"></script>
-        <![endif]-->
-        <!-- <script src="../plugins/jquery-knob/jquery.knob.js"></script> -->
 
         <!-- Dashboard Init -->
         <script src="{{URL::asset('assets/pages/jquery.dashboard.init.js')}}"></script>
@@ -178,17 +172,6 @@
         <!-- App js -->
         <script src="{{URL::asset('assets/js/jquery.core.js')}}"></script>
         <script src="{{URL::asset('assets/js/jquery.app.js')}}"></script>
-        <script>
-        var myDropzone = new Dropzone("#my-dropzone", {
-          	url: "/projeEkle",
-                  headers: {
-                     'x-csrf-token': document.querySelectorAll('meta[name=csrf-token]')[0].getAttributeNode('content').value,
-                  },
-                  parallelUploads: 20,
-          	maxFilesize: 2,
-          	maxFiles: 20,
-          });
-        </script>
 
 
 

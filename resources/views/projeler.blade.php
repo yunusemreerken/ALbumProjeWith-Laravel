@@ -26,7 +26,6 @@
                                 </div>
                             </div>
                         </div>
-                        {{$proje->image_name}}
                         <hr>
                         <div class="port">
                           <?php $i=1; ?>
@@ -60,6 +59,7 @@
                           </div>
                     </div>
                   <?php endforeach; ?>
+                  {{$projeler->links()}}
 
 
 @endsection

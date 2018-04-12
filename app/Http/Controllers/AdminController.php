@@ -42,16 +42,40 @@ class AdminController extends Controller
     }
     public function ekle(Request $request)
     {
-      // $file = Input::get('files');
-        $img    = $request->all(); //access dropzone files
-        dd($img);
-    }
+      $this->validate($request, [
+          'proje_id'=>'required',
+          'file' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+      ]);
+      $proje_id = 20;
+      $proje_name  = $request->proje_name;
+      $proje= DB::SELECT('INSERT INTO proje (name)VALUES (?,?)',[$proje_name,0]);
+      dd($proje);
+        if($request->hasfile('file'))
+         {
+
+            foreach($request->file('file') as $file)
+            {
+
+
+   $input['imagename'] = time().'.'.$file->getClientOriginalExtension();
+
+   $destinationPath = public_path('/images');
+
+   $image->move($destinationPath, $input['imagename']);
+                $name=$file->getClientOriginalExtension();
+                $file->move(public_path().'/images/', $name);
+                $data[] = $name;
+                $query = DB::SELECT('INSERT INTO resimler (proje_id,image_path,image_name) VALUES (?,?,?)',[$proje_id,$ifile,$name]);
+                return back()->with('success','Image Upload successfully');
+            }
+         }
+  }
     public function detay(Request $request)
     {
-        if($request->delete!=='sil')
+        if(isset($request->id))
         {
           $proje_id = $request->id;
-          $query = DB::SELECT('SELECT proje.id as proje_id,proje.name as proje_name, ANY_VALUE(resimler.image_name) as image_name, COUNT(resim_rating.rate) as _count,SUM(resim_rating.rate) as rate
+          $query = DB::SELECT('SELECT proje.id as proje_id,proje.name as proje_name, ANY_VALUE(resimler.image_name) as image_name,resimler.id as resim_id, COUNT(resim_rating.rate) as _count,SUM(resim_rating.rate) as rate
           FROM proje
           INNER JOIN resimler ON proje.id = resimler.proje_id
           LEFT JOIN resim_rating ON resim_rating.resim_id = resimler.id
@@ -59,10 +83,28 @@ class AdminController extends Controller
           GROUP BY resimler.id',[$proje_id]);
           return view('admin.proje-detay')->with('images',$query);
         }
-        echo $request->delete;
-
+        else if(isset($request->activeted))
+        {
+          $proje_aktif = $request->activeted;
+          $query = DB::SELECT('UPDATE proje SET proje.is_deleted = 0 WHERE  proje.id = ? ',[$proje_aktif]);
+          return back()->with('success','Proje activeted successfully');
+        }
+        else {
+            $proje_delete = $request->delete;
+            $query = DB::SELECT('UPDATE proje SET proje.is_deleted = 1 WHERE  proje.id = ? ',[$proje_delete]);
+            return back()->with('success','Proje delete successfully');
+        }
     }
-
-
+    public function imageDetay(Request $request)
+    {
+        if (isset($request->delete)) {
+            $query = DB::SELECT('UPDATE resimler SET resimler.is_deleted = 1 WHERE resimler.id = ?',[$request->delete]);
+            return back()->with('success','Images delete successfully');
+        }
+        else {
+          $query = DB::SELECT('UPDATE resimler SET resimler.is_deleted = 0 WHERE resimler.id = ?',[$request->delete]);
+          return back()->with('success','Images delete successfully');
+        }
+    }
 
 }

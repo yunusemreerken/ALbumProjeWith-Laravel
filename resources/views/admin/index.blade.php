@@ -65,12 +65,10 @@
                           <td>
                             <form class="" action="{{route('detay')}}" method="post">
                               @csrf
-                              <label class="btn btn-sm switch">
-                                <input type="checkbox">
-                                <span class="slider round" name="aktif" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Aktif/Pasif"></span>
-                              </label>
+
                               <button type="submit" name="id" value="{{$proje->proje_id}}" class="btn btn-sm btn-custom" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Düzenle"><i class="mdi mdi-tooltip-edit"></i></button>
-                              <button type="submit" name="delete" value="sil" class="btn btn-sm btn-danger" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Sil"><i class="mdi mdi-delete"></i></button>
+                              <button type="submit" name="activeted" value="{{$proje->proje_id}}" class="btn btn-sm btn-success" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Aktif Yap"><i class="mdi mdi-tooltip-outline-plus"></i></button>
+                              <button type="submit" name="delete" value="{{$proje->proje_id}}" class="btn btn-sm btn-danger" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Pasif Yap"><i class="mdi mdi-delete"></i></button>
                             </form>
                           </td>
                       </tr>
@@ -86,7 +84,6 @@
 
 
 </div> <!-- container -->
-
 
 
 

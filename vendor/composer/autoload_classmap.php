@@ -16,6 +16,7 @@ return array(
     'App\\Http\\Controllers\\Auth\\ResetPasswordController' => $baseDir . '/app/Http/Controllers/Auth/ResetPasswordController.php',
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
     'App\\Http\\Controllers\\HomeController' => $baseDir . '/app/Http/Controllers/HomeController.php',
+    'App\\Http\\Controllers\\Image3Controller' => $baseDir . '/app/Http/Controllers/Image3Controller.php',
     'App\\Http\\Controllers\\ImageController' => $baseDir . '/app/Http/Controllers/ImageController.php',
     'App\\Http\\Controllers\\ProjeController' => $baseDir . '/app/Http/Controllers/ProjeController.php',
     'App\\Http\\Controllers\\denemeController' => $baseDir . '/app/Http/Controllers/denemeController.php',
