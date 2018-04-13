@@ -20,32 +20,10 @@
         <link rel="stylesheet" href="{{URL::asset('plugins/magnific-popup/css/magnific-popup.css')}}">
         <!-- <link rel="stylesheet" href="{{URL::asset('css/star.css')}}"> -->
         <script src="{{URL::asset('assets/js/modernizr.min.js')}}"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.4.0/dropzone.css">
+        <!-- dropzone css -->
+        <!-- <link href="{{URL::asset('plugins/bootstrap-fileupload/bootstrap-fileupload.css')}}" rel="stylesheet"> -->
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.4.0/dropzone.js"></script>
-        
-<script>
-var form = document.getElementById('upload');
-var request = new XMLHttpRequest();
-
-form.addEventListener('submit', function(e){
-    e.preventDefault();
-    var formdata = new FormData(form);
-
-    request.open('post', '/upload');
-    request.addEventListener("load", transferComplete);
-    request.send(formdata);
-
-});
-
-function transferComplete(data){
-    response = JSON.parse(data.currentTarget.response);
-    if(response.success){
-        document.getElementById('message').innerHTML = "Successfully Uploaded Files!";
-    }
-}
-</script>
-
+        {!! HTML::style('/packages/dropzone/dropzone.css') !!}
         <style type="text/css">
         .portfolio-masonry-box:hover .portfolio-masonry-detail{
           padding: 20px 20px 90px 20px;
@@ -172,8 +150,9 @@ function transferComplete(data){
         <!-- App js -->
         <script src="{{URL::asset('assets/js/jquery.core.js')}}"></script>
         <script src="{{URL::asset('assets/js/jquery.app.js')}}"></script>
-
-
+        <!-- dropzone file upload -->
+        {!! HTML::script('/packages/dropzone/dropzone.js') !!}
+        {!! HTML::script('/assets/js/dropzone-config.js') !!}
 
 
         <script>

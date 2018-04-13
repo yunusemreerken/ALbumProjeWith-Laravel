@@ -21,11 +21,11 @@
                   <table class="table table-hover table-centered m-0">
                       <thead>
                       <tr>
-                          <th>
+                          <!-- <th>
                             <div class="checkboxall">
                               <input id="select_all" type="checkbox"> Tümünü Seç
                             </div>
-                          </th>
+                          </th> -->
                           <th>Proje Adı</th>
                           <th>Fotoğraf Sayısı</th>
                           <th>Puan</th>
@@ -33,14 +33,15 @@
                       </tr>
                       </thead>
                       <tbody>
-                        <?php foreach ($projeler as $proje): ?>
+
+                        <?php $i=1; foreach ($projeler as $proje): ?>
 
                       <tr>
-                          <td>
+                          <!-- <td>
                             <div class="checkboxall">
                               <input class="checkbox" type="checkbox" name="check[]">
                             </div>
-                          </td>
+                          </td> -->
 
                           <td>
                               <h5 class="m-0 font-weight-normal">{{$proje->proje_name}}</h5>
@@ -63,16 +64,24 @@
 
 
                           <td>
+                            <!-- <button type="submit" </button> -->
                             <form class="" action="{{route('detay')}}" method="post">
                               @csrf
-
-                              <button type="submit" name="id" value="{{$proje->proje_id}}" class="btn btn-sm btn-custom" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Düzenle"><i class="mdi mdi-tooltip-edit"></i></button>
+                               <a onclick="event.preventDefault();document.getElementById('logout-form{{$i}}').submit();" class="btn btn-sm btn-custom"
+                               data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Düzenle"><i class="mdi mdi-tooltip-edit"></i></a>
                               <button type="submit" name="activeted" value="{{$proje->proje_id}}" class="btn btn-sm btn-success" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Aktif Yap"><i class="mdi mdi-tooltip-outline-plus"></i></button>
                               <button type="submit" name="delete" value="{{$proje->proje_id}}" class="btn btn-sm btn-danger" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Pasif Yap"><i class="mdi mdi-delete"></i></button>
                             </form>
+
+                            <form id="logout-form{{$i}}"
+                            action="detay2/{{$proje->proje_id}}"
+                            method="GET"
+                            style="display: none;">
+                          </form>
                           </td>
                       </tr>
-                    <?php endforeach; ?>
+
+                    <?php $i++; endforeach; ?>
 
                       </tbody>
                   </table>

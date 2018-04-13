@@ -30,11 +30,20 @@
 
                                           </div>
                                           <div class="portfolio-masonry-detail">
-                                            <form class="" action="{{route('dd')}}"  method="post">
+                                            <!-- <button type="button" name="activeted"  onclick="event.preventDefault();document.getElementById('logout-form').submit();" value="{{$image->resim_id}}" class="btn btn-sm btn-success" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Aktif Yap"><i class="mdi mdi-tooltip-outline-plus"></i></button>
+                                            <button type="button" name="delete"  onclick="event.preventDefault();document.getElementById('logout-form').submit();" value="{{$image->resim_id}}" class="btn btn-sm btn-danger" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Pasif Yap"><i class="mdi mdi-delete"></i></button>
+
+                                            <form id="logout-form" action="{{route('dd')}}"  method="post">
+                                                {{ csrf_field() }}
+                                            </form> -->
+
+                                            <form class="" action="{{route('imageStatus')}}" method="post">
                                               @csrf
                                               <button type="submit" name="activeted" value="{{$image->resim_id}}" class="btn btn-sm btn-success" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Aktif Yap"><i class="mdi mdi-tooltip-outline-plus"></i></button>
                                               <button type="submit" name="delete" value="{{$image->resim_id}}" class="btn btn-sm btn-danger" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Pasif Yap"><i class="mdi mdi-delete"></i></button>
                                             </form>
+
+
 
                                           </div>
                                       </div>

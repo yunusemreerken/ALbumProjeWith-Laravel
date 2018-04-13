@@ -31,9 +31,13 @@ Route::group(['middleware' => 'auth','middleware' => 'adminCheck'], function()
   Route::post('upload', ['as' => 'upload-post', 'uses' =>'ImageController@postUpload']);
   Route::post('upload/delete', ['as' => 'upload-remove', 'uses' =>'ImageController@deleteUpload']);
 
-
-  // route::get('projeDetay','AdminController@projeDetay')->name('projeDetay');
   route::post('detay','AdminController@detay')->name('detay');
+  // route::get('projeDetay','AdminController@projeDetay')->name('projeDetay');
+  // route::get('duzenle','AdminController@duzenle')->name('duzenle');
+  route::get('detay2/{id}','AdminController@detay2');
+  route::post('imageStatus','AdminController@imageStatus')->name('imageStatus');
+  // route::get('aktif/{id}','AdminController@aktif');
+  // route::get('pasif','AdminController@pasif')->name('pasif');
   route::post('dd','AdminController@imageDetay')->name('dd');
 
   // Route::get('admin','AdminController@index')->name('admin');

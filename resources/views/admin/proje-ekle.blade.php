@@ -6,8 +6,14 @@
         <div class="col-md-offset-1 col-md-10">
             <div class="jumbotron how-to-create" >
 
-                <h3>Images <span id="photoCounter"></span></h3>
+                <h3>Resimler <span id="photoCounter"></span></h3>
                 <br />
+                <div class="form-group row">
+                  <label class="col-2 col-form-label">Proje Adı:</label>
+                  <div class="col-10">
+                      <input class="form-control" placeholder="Bir Proje adı girin..." type="text">
+                  </div>
+              </div>
 
                 {!! Form::open(['url' => route('upload-post'), 'class' => 'dropzone', 'files'=>true, 'id'=>'real-dropzone']) !!}
 
@@ -22,8 +28,9 @@
                 <div class="dropzone-previews" id="dropzonePreview"></div>
 
                 <h4 style="text-align: center;color:#428bca;">Drop images in this area  <span class="glyphicon glyphicon-hand-down"></span></h4>
-
                 {!! Form::close() !!}
+                <input type="submit" name="gonder" value="Gönder">
+
 
             </div>
             <div class="jumbotron how-to-create">

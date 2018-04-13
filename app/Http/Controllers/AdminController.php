@@ -9,6 +9,7 @@ use Carbon\Carbon;
 use Illuminate\Support\Facades\Input;
 use Auth;
 use File;
+use Illuminate\Support\Facades\Redirect;
 class AdminController extends Controller
 {
     /**
@@ -29,6 +30,7 @@ class AdminController extends Controller
      */
     public function index()
     {
+      
         $query = DB::SELECT('SELECT proje.id as proje_id, proje.name as proje_name,COUNT(resim_rating.rate) as _count, SUM(resim_rating.rate) as rate, COUNT(DISTINCT(resimler.image_name)) as resimlercount
                               FROM proje
                               INNER JOIN resimler ON resimler.proje_id=proje.id
@@ -36,10 +38,12 @@ class AdminController extends Controller
                               GROUP BY proje.id order by proje.id DESC ');
         return view('admin.index')->with('projeler', $query);
     }
+
     public function projeEkle()
     {
         return view('admin.proje-ekle');
     }
+
     public function ekle(Request $request)
     {
       $this->validate($request, [
@@ -69,21 +73,10 @@ class AdminController extends Controller
                 return back()->with('success','Image Upload successfully');
             }
          }
-  }
+    }
     public function detay(Request $request)
     {
-        if(isset($request->id))
-        {
-          $proje_id = $request->id;
-          $query = DB::SELECT('SELECT proje.id as proje_id,proje.name as proje_name, ANY_VALUE(resimler.image_name) as image_name,resimler.id as resim_id, COUNT(resim_rating.rate) as _count,SUM(resim_rating.rate) as rate
-          FROM proje
-          INNER JOIN resimler ON proje.id = resimler.proje_id
-          LEFT JOIN resim_rating ON resim_rating.resim_id = resimler.id
-          where proje_id = ?
-          GROUP BY resimler.id',[$proje_id]);
-          return view('admin.proje-detay')->with('images',$query);
-        }
-        else if(isset($request->activeted))
+        if(isset($request->activeted))
         {
           $proje_aktif = $request->activeted;
           $query = DB::SELECT('UPDATE proje SET proje.is_deleted = 0 WHERE  proje.id = ? ',[$proje_aktif]);
@@ -92,19 +85,58 @@ class AdminController extends Controller
         else {
             $proje_delete = $request->delete;
             $query = DB::SELECT('UPDATE proje SET proje.is_deleted = 1 WHERE  proje.id = ? ',[$proje_delete]);
-            return back()->with('success','Proje delete successfully');
+            return back()->with('success','Proje passive successfully');
         }
     }
-    public function imageDetay(Request $request)
+    public function imageStatus(Request $request)
     {
-        if (isset($request->delete)) {
-            $query = DB::SELECT('UPDATE resimler SET resimler.is_deleted = 1 WHERE resimler.id = ?',[$request->delete]);
-            return back()->with('success','Images delete successfully');
-        }
-        else {
-          $query = DB::SELECT('UPDATE resimler SET resimler.is_deleted = 0 WHERE resimler.id = ?',[$request->delete]);
-          return back()->with('success','Images delete successfully');
-        }
+      if(isset($request->activeted))
+      {
+        $proje_aktif = $request->activeted;
+        $query = DB::SELECT('UPDATE resimler SET resimler.is_deleted = 0 WHERE  resimler.id = ? ',[$proje_aktif]);
+        return back()->with('success','İmage activeted successfully');
+      }
+      else {
+          $proje_delete = $request->delete;
+          $query = DB::SELECT('UPDATE resimler SET resimler.is_deleted = 1 WHERE  resimler.id = ? ',[$proje_delete]);
+          return back()->with('success','İmage passive successfully');
+      }
     }
+    public function detay2($id)
+    {
+
+      $query = DB::SELECT('SELECT proje.id as proje_id,proje.name as proje_name,ANY_VALUE(resimler.image_name) as image_name,resimler.id as resim_id, COUNT(resim_rating.rate) as _count,SUM(resim_rating.rate) as rate
+      FROM proje
+      INNER JOIN resimler ON proje.id = resimler.proje_id
+      LEFT JOIN resim_rating ON resim_rating.resim_id = resimler.id
+      where proje.id = ?
+      GROUP BY resimler.id',[$id]);
+      // echo "başarılı";
+      return view('admin.proje-detay')->with('images',$query);
+    }
+
+    // public function aktif($id)
+    // {
+    //   $query = DB::SELECT('UPDATE resimler SET resimler.is_deleted = 1 WHERE  resimler.id = ? ',[$id]);
+    //   echo "başarılı";
+    // }
+    // public function pasif(Request $request)
+    // {
+    //   $id = $request->activeted;
+    //   $query = DB::SELECT('UPDATE resimler SET resimler.is_deleted = 1 WHERE  resimler.id = ? ',[$id]);
+    //   echo "başarılı";
+    // }
+
+    // public function imageDetay(Request $request)
+    // {
+    //     if (isset($request->delete)) {
+    //         $query = DB::SELECT('UPDATE resimler SET resimler.is_deleted = 1 WHERE resimler.id = ?',[$request->delete]);
+    //         return back()->with('success','Images delete successfully');
+    //     }
+    //     else {
+    //       $query = DB::SELECT('UPDATE resimler SET resimler.is_deleted = 0 WHERE resimler.id = ?',[$request->delete]);
+    //       return back()->with('success','Images delete successfully');
+    //     }
+    // }
 
 }
