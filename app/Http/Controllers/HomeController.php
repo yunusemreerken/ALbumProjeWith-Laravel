@@ -18,63 +18,19 @@ class HomeController extends Controller
     {
          $this->middleware('auth');
     }
-
-    // /**
-    //  * Show the application dashboard.
-    //  *
-    //  * @return \Illuminate\Http\Response
-    //  */
-//     public function index()
-//     {
-//       $query = DB::SELECT('SELECT proje.id as proje_id,proje.name as proje_name, ANY_VALUE(resimler.image_name) as image_name, COUNT(resim_rating.rate) as _count,SUM(resim_rating.rate) as rate
-//       FROM proje
-//       INNER JOIN resimler ON proje.id = resimler.proje_id
-//       LEFT JOIN resim_rating ON resim_rating.resim_id = resimler.id
-//       where proje.id = 13
-//       GROUP BY resimler.id ,proje.id ORDER BY proje.id DESC
-//        ');
-//        // $query  = DB::SELECT('SELECT proje.id as proje_id, proje.name as proje_name,COALESCE(ANY_VALUE(resimler.image_name)) as image_name, COUNT(resim_rating.rate) as _count,
-//        //  SUM(resim_rating.rate) as rate, COUNT(DISTINCT(resimler.image_name)) as resimlercount
-//        //                       FROM proje
-//        //                       INNER JOIN resimler ON resimler.proje_id=proje.id
-//        //                       LEFT JOIN resim_rating ON resim_rating.resim_id = resimler.id
-//        //
-//        //                       ');
-//        $query  = DB::SELECT('SELECT
-//   proje.id AS proje_id,
-//   proje.name AS proje_name,
-//   COUNT(resim_rating.rate) AS _count,
-//   SUM(resim_rating.rate) AS rate
-// FROM
-//   proje
-// INNER JOIN
-//   resimler ON proje.id = resimler.proje_id
-// LEFT JOIN
-//   resim_rating ON resim_rating.resim_id = resimler.id
-// GROUP BY
-//   proje.id
-// ORDER BY
-//   proje.id DESC');
-//
-//       return  view('projeler')->with('projeler',$query);
-//     }
-
-
-
     public function index(Request $request){
 
-    $notices = DB::select('SELECT proje.id as proje_id,proje.name as proje_name, ANY_VALUE(resimler.image_name) as image_name, COUNT(resim_rating.rate) as _count,SUM(resim_rating.rate) as rate
+    $notices = DB::select('SELECT proje.id as proje_id,proje.name as proje_name,images.id as resim_id, ANY_VALUE(images.filename) as image_name, COUNT(resim_rating.rate) as _count,SUM(resim_rating.rate) as rate
     FROM proje
-    INNER JOIN resimler ON proje.id = resimler.proje_id
-    LEFT JOIN resim_rating ON resim_rating.resim_id = resimler.id
-    GROUP BY resimler.id ,proje.id ORDER BY proje.id DESC');
+    INNER JOIN images ON proje.id = images.proje_id
+    LEFT JOIN resim_rating ON resim_rating.resim_id = images.id
+    GROUP BY images.id ,proje.id ORDER BY proje.id DESC');
 
     $notices = $this->arrayPaginator($notices, $request);
 
     return view('projeler')->with('projeler', $notices);
 
     }
-
     public function arrayPaginator($array, $request)
     {
         $page = Input::get('page', 1);

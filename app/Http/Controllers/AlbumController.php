@@ -23,12 +23,12 @@ class AlbumController extends Controller
   {
      $query = DB::SELECT('SELECT sum(resim_rating.rate) as rate,
                                  count(resim_rating.resim_id) as count,
-                                 resimler.id as id,
-                                 resimler.image_name as image_name
-                                 FROM resimler
-                                 LEFT JOIN resim_rating ON resim_rating.resim_id = resimler.id
+                                 images.id as id,
+                                 images.filename as image_name
+                                 FROM images
+                                 LEFT JOIN resim_rating ON resim_rating.resim_id = images.id
                                  WHERE 1
-                                 GROUP BY resimler.id order by resimler.id desc limit 6
+                                 GROUP BY images.id order by images.id desc limit 6
                                    ');
 
     return view('album',['images' => $query]);
@@ -52,12 +52,12 @@ class AlbumController extends Controller
         //fotoğrafların ortlamasını getirir.
         $query2 = DB::SELECT('SELECT sum(resim_rating.rate) as rate,
         count(resim_rating.resim_id) as count,
-        resimler.id as id,
-        resimler.image_name as image_name
-        FROM resimler
-        LEFT JOIN resim_rating ON resim_rating.resim_id = resimler.id
-        WHERE resimler.id = ?
-        GROUP BY resimler.id
+        images.id as id,
+        images.filename as image_name
+        FROM images
+        LEFT JOIN resim_rating ON resim_rating.resim_id = images.id
+        WHERE images.id = ?
+        GROUP BY images.id
         ',[$id]);
         foreach ($query2 as $result) {
           $avg = ($result->rate)/($result->count);

@@ -6,9 +6,10 @@ use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\File;
 use Intervention\Image\ImageManager;
 use App\Models\Image;
+use DB;
 class ImageRepository
 {
-    public function upload( $form_data )
+    public function upload( $form_data,$id )
     {
         $validator = Validator::make($form_data, Image::$rules, Image::$messages);
         if ($validator->fails()) {
@@ -35,6 +36,7 @@ class ImageRepository
             ], 500);
         }
         $sessionImage = new Image;
+        $sessionImage->proje_id = $id;
         $sessionImage->filename      = $allowed_filename;
         $sessionImage->original_name = $originalName;
         $sessionImage->save();

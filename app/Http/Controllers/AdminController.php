@@ -30,11 +30,11 @@ class AdminController extends Controller
      */
     public function index()
     {
-      
-        $query = DB::SELECT('SELECT proje.id as proje_id, proje.name as proje_name,COUNT(resim_rating.rate) as _count, SUM(resim_rating.rate) as rate, COUNT(DISTINCT(resimler.image_name)) as resimlercount
+
+        $query = DB::SELECT('SELECT proje.id as proje_id, proje.name as proje_name,COUNT(resim_rating.rate) as _count, SUM(resim_rating.rate) as rate, COUNT(DISTINCT(images.filename)) as resimlercount
                               FROM proje
-                              INNER JOIN resimler ON resimler.proje_id=proje.id
-                              LEFT JOIN resim_rating ON resim_rating.resim_id = resimler.id
+                              INNER JOIN images ON images.proje_id=proje.id
+                              LEFT JOIN resim_rating ON resim_rating.resim_id = images.id
                               GROUP BY proje.id order by proje.id DESC ');
         return view('admin.index')->with('projeler', $query);
     }
@@ -105,12 +105,12 @@ class AdminController extends Controller
     public function detay2($id)
     {
 
-      $query = DB::SELECT('SELECT proje.id as proje_id,proje.name as proje_name,ANY_VALUE(resimler.image_name) as image_name,resimler.id as resim_id, COUNT(resim_rating.rate) as _count,SUM(resim_rating.rate) as rate
+      $query = DB::SELECT('SELECT proje.id as proje_id,proje.name as proje_name,ANY_VALUE(images.filename) as image_name,images.id as resim_id, COUNT(resim_rating.rate) as _count,SUM(resim_rating.rate) as rate
       FROM proje
-      INNER JOIN resimler ON proje.id = resimler.proje_id
-      LEFT JOIN resim_rating ON resim_rating.resim_id = resimler.id
+      INNER JOIN images ON proje.id = images.proje_id
+      LEFT JOIN resim_rating ON resim_rating.resim_id = images.id
       where proje.id = ?
-      GROUP BY resimler.id',[$id]);
+      GROUP BY images.id',[$id]);
       // echo "başarılı";
       return view('admin.proje-detay')->with('images',$query);
     }
@@ -127,16 +127,16 @@ class AdminController extends Controller
     //   echo "başarılı";
     // }
 
-    // public function imageDetay(Request $request)
-    // {
-    //     if (isset($request->delete)) {
-    //         $query = DB::SELECT('UPDATE resimler SET resimler.is_deleted = 1 WHERE resimler.id = ?',[$request->delete]);
-    //         return back()->with('success','Images delete successfully');
-    //     }
-    //     else {
-    //       $query = DB::SELECT('UPDATE resimler SET resimler.is_deleted = 0 WHERE resimler.id = ?',[$request->delete]);
-    //       return back()->with('success','Images delete successfully');
-    //     }
-    // }
+    public function imageDetay(Request $request)
+    {
+        if (isset($request->delete)) {
+            $query = DB::SELECT('UPDATE resimler SET resimler.is_deleted = 1 WHERE resimler.id = ?',[$request->delete]);
+            return back()->with('success','Images delete successfully');
+        }
+        else {
+          $query = DB::SELECT('UPDATE resimler SET resimler.is_deleted = 0 WHERE resimler.id = ?',[$request->delete]);
+          return back()->with('success','Images delete successfully');
+        }
+    }
 
 }

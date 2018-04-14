@@ -19,7 +19,9 @@
                                 </div>
                                 <div class="portfolioFilter text-right gallery-second">
                                     <!-- <a href="#" data-filter="*" class="current">All</a> -->
-                                    <label>{{round($proje->rate/$proje->_count,2)}}</label>
+                                    <label><?php if ($proje->rate>0): ?>
+                                      {{round($proje->rate/$proje->_count,2)}}
+                                    <?php endif; ?></label>
                                     <!-- <a href="#" data-filter=".graphicdesign">Graphic Design</a> -->
                                     <!-- <a href="#" data-filter=".illustrator">Illustrator</a> -->
                                     <!-- <a href="#" data-filter=".photography">Photography</a> -->
@@ -42,14 +44,11 @@
                                             </div>
                                         </div>
                                     </a>
-                                    <p class="text-muted m-b-20 font-14">
-                                        <!-- You have the option hint or score to chosse. <b class="targetType-hint" class="label label-success"></b> -->
-                                    </p>
-                                      <div class="star1">
-                                        <div class="targetType"></div>
 
-                                      </div>
-                                  </div>
+
+                                    <div class="col-sm-6">
+                                        <div id="default"></div>
+                                    </div>
                         </div> <!-- End row -->
                           <div class="form-group text-right">
                             <button class="btn btn-custom waves-effect waves-light" type="submit">

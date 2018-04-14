@@ -8,14 +8,14 @@
 
                 <h3>Resimler <span id="photoCounter"></span></h3>
                 <br />
+
+                {!! Form::open(['url' => route('upload-post'), 'class' => 'dropzone', 'files'=>true, 'id'=>'real-dropzone']) !!}
                 <div class="form-group row">
                   <label class="col-2 col-form-label">Proje Adı:</label>
                   <div class="col-10">
-                      <input class="form-control" placeholder="Bir Proje adı girin..." type="text">
+                    <input class="form-control" name="name" placeholder="Bir Proje adı girin..." type="text">
                   </div>
-              </div>
-
-                {!! Form::open(['url' => route('upload-post'), 'class' => 'dropzone', 'files'=>true, 'id'=>'real-dropzone']) !!}
+                </div>
 
                 <div class="dz-message">
 
@@ -29,7 +29,6 @@
 
                 <h4 style="text-align: center;color:#428bca;">Drop images in this area  <span class="glyphicon glyphicon-hand-down"></span></h4>
                 {!! Form::close() !!}
-                <input type="submit" name="gonder" value="Gönder">
 
 
             </div>

@@ -29,37 +29,7 @@
     <!-- Styles -->
 </head>
 <body>
-  <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
-        <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="{{route('home')}}">Company name</a>
-        <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
-        <!-- searh button and form  -->
-        <!-- <a class="btn btn-success"  href="{{ route('logout') }}"
-           onclick="event.preventDefault();
-                         document.getElementById('logout-form').submit();">
-            {{ __('Logout') }}
-        </a>
-        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-            @csrf
-        </form> -->
-        <ul class="navbar-nav px-5">
-          @guest
-              <li><a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a></li>
-              <li><a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a></li>
-          @else
-              <!-- <li class="active"><a href="#">{{ Auth::user()->name }}</a></li> -->
-              <li class="nav-item dropdown">
-                  <a class="btn btn-primary"  href="{{ route('logout') }}"
-                     onclick="event.preventDefault();
-                                   document.getElementById('logout-form').submit();">
-                      {{ __('Logout') }}
-                  </a>
-                  <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                      @csrf
-                  </form>
-              </li>
-          @endguest
-        </ul>
-  </nav>
+
       <!-- <canvas class="my-4" id="myChart" width="900" height="380"></canvas> -->
           @yield('content')
 </body>

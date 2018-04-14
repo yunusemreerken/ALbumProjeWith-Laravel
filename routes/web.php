@@ -14,6 +14,8 @@
 Route::get('/home','denemeController@index')->name('home');
 
 Route::get('/','denemeController@index')->name('home');
+route::get('projeler','HomeController@index')->name('projeler');
+
 Route::post('/starRating','AlbumController@galery_rating')->name('starRating');
 
 Route::post('/starRating',array('as'=>'starRating',
@@ -21,20 +23,20 @@ Route::post('/starRating',array('as'=>'starRating',
 
 Auth::routes();
 
-
 Route::group(['middleware' => 'auth','middleware' => 'adminCheck'], function()
 {
   route::get('admin','AdminController@index')->name('admin');
+  //image upload
   route::get('projeEkle','AdminController@projeEkle')->name('projeEkle');
-  // route::post('projeEkle','AdminController@ekle')->name('ekle');
-  // Route::get('/', ['as' => 'upload', 'uses' => 'ImageController@getUpload']);
   Route::post('upload', ['as' => 'upload-post', 'uses' =>'ImageController@postUpload']);
   Route::post('upload/delete', ['as' => 'upload-remove', 'uses' =>'ImageController@deleteUpload']);
 
+  //proje detay
   route::post('detay','AdminController@detay')->name('detay');
+  route::get('detay2/{id}','AdminController@detay2');
+
   // route::get('projeDetay','AdminController@projeDetay')->name('projeDetay');
   // route::get('duzenle','AdminController@duzenle')->name('duzenle');
-  route::get('detay2/{id}','AdminController@detay2');
   route::post('imageStatus','AdminController@imageStatus')->name('imageStatus');
   // route::get('aktif/{id}','AdminController@aktif');
   // route::get('pasif','AdminController@pasif')->name('pasif');
@@ -51,9 +53,7 @@ Route::group(['middleware' => 'auth','middleware' => 'adminCheck'], function()
   // route::get('deleteImage','ImageController@delete')->name('deleteImage');
   // // Route::get('deleteImage','UploadImageController');
 
-  //admin user değişikliği yapılacak
 });
-route::get('projeler','HomeController@index')->name('projeler');
 
 
 

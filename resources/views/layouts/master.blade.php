@@ -20,8 +20,9 @@
         <link rel="stylesheet" href="{{URL::asset('plugins/magnific-popup/css/magnific-popup.css')}}">
         <!-- <link rel="stylesheet" href="{{URL::asset('css/star.css')}}"> -->
         <script src="{{URL::asset('assets/js/modernizr.min.js')}}"></script>
-        <!-- dropzone css -->
-        <!-- <link href="{{URL::asset('plugins/bootstrap-fileupload/bootstrap-fileupload.css')}}" rel="stylesheet"> -->
+        <link rel="stylesheet" href="{{URL::asset('css/star.css')}}">
+
+
 
         {!! HTML::style('/packages/dropzone/dropzone.css') !!}
         <style type="text/css">
@@ -153,6 +154,50 @@
         <!-- dropzone file upload -->
         {!! HTML::script('/packages/dropzone/dropzone.js') !!}
         {!! HTML::script('/assets/js/dropzone-config.js') !!}
+        <script type="text/javascript" src="{{asset('js/star.js')}}">
+
+        <script>
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('input[name="_token"]').val()
+            }
+        });
+
+
+          function tiklandi(obj,value,imageId,i){
+            // console.log(obj);
+            $.ajax({
+                type: "POST",
+                url: '{{route("starRating")}}',
+                data: {'_token': $('input[name="_token"]').val(),rate:value,id:imageId,i:i},
+
+                success: function(data) {
+                  $("#result".concat(i)).empty();
+                    $("#result".concat(i)).append(data);
+                }
+            });
+          };
+
+
+
+        // $(document).ready(function (){
+        //   $('.rate').click('rate', function (e) {
+        //       e.preventDefault();
+        //       var rate = $(this).val();
+        //       // console.log(rate);
+        //       for (var i = 1; i < array.length; i++) {
+        //         array[i]
+        //       }
+        //       var i = $(this).val();
+        //       var id = $("input[name='id1']").val();
+        //
+        //       console.log(id);
+        //
+        //
+        //
+        //   });
+        // });
+        </script>
 
 
         <script>

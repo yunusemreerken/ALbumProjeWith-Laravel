@@ -26,7 +26,7 @@
                               <div class="col-sm-6 col-md-4 webdesign" style="position: absolute; left: 0px; top: 0px;">
                                       <div class="portfolio-masonry-box">
                                           <div class="portfolio-masonry-img">
-                                              <img src="{{URL::asset('/images/'.$image->image_name)}}" class="thumb-img img-fluid" alt="work-thumbnail">
+                                              <img src="{{URL::asset('/'.$image->image_name)}}" class="thumb-img img-fluid" alt="work-thumbnail">
 
                                           </div>
                                           <div class="portfolio-masonry-detail">

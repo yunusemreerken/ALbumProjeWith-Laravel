@@ -2,7 +2,7 @@
 
 /* Basic styles */
 
-  .star,row  {
+  .star .row  {
     text-align: center;
   }
 
@@ -47,61 +47,23 @@
   }
 
 
-
-/* Half-star*/
-
-.star-half {
-  position: relative;
-}
-
-.star-half:before {
-  position: absolute;
-  content: "\f089";
-  padding-right: 0;
-}
-
-/* percentage star */
-/*---------- general ----------*/
-body {
-  background: #ff7070;
-  color: #F3FCF0;
-  font-family: sans-serif;
-  text-align: center;
-}
-
-/*---------- star rating ----------*/
-.star-rating, .back-stars, .front-stars {
-  display: flex;
-}
-
-.star-rating {
-  align-items: center;
-  font-size: 3em;
-  justify-content: center;
-  margin-top: 50px;
-  height:50px;
-  position:relative;
-  width: 145px;
-}
-
-.back-stars {
-  color: #bb5252;
-  position: absolute;
-  right:0;
-  left:0;
-  top:0;
-  bottom:0;
-  text-shadow: 4px 4px 10px #843a3a;
-}
-
-.front-stars {
-  color: #FFBC0B;
-  position: absolute;
-  left:0;
-  top:0;
-  overflow:hidden;
-  bottom:0;
-  text-shadow: 2px 2px 5px #d29b09;
-  top: 0;
-}
-/* percentage star end*/
+  .container {
+      display: table;
+      height: 65%;
+      position: absolute;
+      overflow: hidden;
+      width: 100%;
+  }
+  .helper {
+      #position: absolute;
+      #top: 50%;
+      display: table-cell;
+      vertical-align: middle;
+  }
+  .content {
+      #position: relative;
+      #top: -50%;
+      margin: 0 auto;
+      width: 200px;
+      /* border: 1px solid orange; */
+  }
