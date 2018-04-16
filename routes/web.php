@@ -11,10 +11,11 @@
 |
 
 */
-Route::get('/home','denemeController@index')->name('home');
+Route::get('/home','HomeController@index')->name('home');
 
-Route::get('/','denemeController@index')->name('home');
-route::get('projeler','HomeController@index')->name('projeler');
+// Route::get('/','denemeController@index')->name('home');
+route::get('/','HomeController@index')->name('projeler');
+route::post('projeDetay','HomeController@projeDetay')->name('projeDetay');
 
 Route::post('/starRating','AlbumController@galery_rating')->name('starRating');
 
@@ -57,10 +58,6 @@ Route::group(['middleware' => 'auth','middleware' => 'adminCheck'], function()
 
 
 
-// Route::get('/admin','AdminController@index')->middleware(['adminCheck']);
-
-// Route::get('/', 'HomeController@index')->name('home');
-// Route::get('admingiris','AdminController@index');
 
 // Route::get('/album_onaysiz','AlbumController@display2')->name('album_onaysiz');
 

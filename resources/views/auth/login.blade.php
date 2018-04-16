@@ -60,9 +60,9 @@
                                               {{ __('Login') }}
                                           </button>
 
-                                          <!-- <a class="btn btn-link" href="{{ route('password.request') }}">
-                                              {{ __('Forgot Your Password?') }}
-                                          </a> -->
+                                          <a class="btn btn-link" href="{{ route('register') }}">
+                                              {{ __('Kayıt Ol') }}
+                                          </a>
                                       </div>
                                   </div>
                               </form>

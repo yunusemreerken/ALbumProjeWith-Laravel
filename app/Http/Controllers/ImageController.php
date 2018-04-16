@@ -23,12 +23,11 @@ class ImageController extends Controller
     {
         $photo = Input::all();
         $proje_name = $photo['name'];
-        $query = DB::SELECT('SELECT COUNT(proje.id) as id FROM proje WHERE proje.name = ?',[$proje_name]);
-
+        $query = DB::SELECT('SELECT COUNT(proje.id) as _count, ANY_VALUE(proje.id) as id FROM proje WHERE proje.name = ?',[$proje_name]);
 
         foreach ($query as $que) {
 
-          if($que->id>=1)
+          if($que->_count>=1)
           {
             $id = $que->id;
           }

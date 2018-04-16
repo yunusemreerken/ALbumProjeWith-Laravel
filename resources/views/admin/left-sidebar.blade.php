@@ -52,7 +52,7 @@
                 </li>
 
                 <li>
-                    <a href="{{route('detay')}}"><i class="fi-mail"></i><span> Email </span></a>
+                    <!-- <a href="{{route('detay')}}"><i class="fi-mail"></i><span> Email </span></a> -->
                     <!-- <ul class="nav-second-level" aria-expanded="false">
                         <li><a href="email-inbox.html">Inbox</a></li>
                         <li><a href="email-read.html">Read Email</a></li>

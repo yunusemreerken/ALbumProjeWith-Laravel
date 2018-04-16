@@ -145,10 +145,13 @@
                         <i class="fi-lock"></i> <span>Lock Screen</span>
                     </a>
 
-                    <!-- item-->
-                    <a href="javascript:void(0);" class="dropdown-item notify-item">
-                        <i class="fi-power"></i> <span>Logout</span>
-                    </a>
+                    
+
+
+                    <a href="{{ route('logout') }}" class="dropdown-item notify-item" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="fi-power"></i> <span>Logout</span></a>
+
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">{{ csrf_field() }}</form>
+
 
                 </div>
             </li>
