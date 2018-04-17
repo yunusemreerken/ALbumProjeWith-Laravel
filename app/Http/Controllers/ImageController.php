@@ -37,9 +37,6 @@ class ImageController extends Controller
             $id = DB::getPdo()->lastInsertId();
           }
         }
-
-
-
         $response = $this->image->upload($photo,$id);
         return $response;
 
@@ -54,7 +51,7 @@ class ImageController extends Controller
         {
             return 0;
         }
-
+        
         $response = $this->image->delete( $filename );
 
         return $response;

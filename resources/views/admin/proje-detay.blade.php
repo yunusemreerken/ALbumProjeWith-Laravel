@@ -7,11 +7,15 @@
                         <div class="row">
                             <div class="col-lg-12 col-md-12 col-sm-12 ">
                                 <div class="portfolioFilter text-center gallery-second">
+                                  <?php $i=1; foreach ($images as $image): ?>
+                                    <?php if ($i==1): ?>
+                                      <a href="" data-filter=".webdesign" class="current">{{$image->proje_name}}</a>
 
-                                      <?php $i =1; if ($i==1) {
-                                        echo '  <a href="" data-filter=".webdesign" class="current">'. "</a>";
+                                    <?php endif; ?>
+                                  <?php endforeach; ?>
 
-                                      }?>
+
+
 
 
 

@@ -27,6 +27,15 @@
         .portfolio-masonry-box:hover .portfolio-masonry-detail{
           padding: 20px 20px 90px 20px;
         }
+        .image-border{
+          border: 1px solid #2c6495;
+          border-radius: 0 0 5px 5px;
+          box-shadow: 0px 2px 6px -2px #888888;
+        }
+        .border-none{
+          border-bottom-left-radius: 0 !important;
+          border-bottom-right-radius: 0 !important;
+        }
         </style>
     </head>
     <body>

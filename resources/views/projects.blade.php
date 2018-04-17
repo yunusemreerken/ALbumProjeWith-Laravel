@@ -1,157 +1,86 @@
-@extends('layouts.master')
+@extends('layouts.master2')
 @section('css')
 <link rel="stylesheet" href="css/customStar.css">
 
 @endsection
 @section('content')
-    <div class="container-fluid">
 
-        <!-- SECTION FILTER
-        ================================================== -->
-        <div class="row">
-            <div class="col-lg-12 col-md-12 col-sm-12 ">
-                <div class="portfolioFilter text-center gallery-second">
-                    <a href="#" data-filter="*" class="current">All</a>
-                    <a href="#" data-filter=".webdesign">Web Design</a>
-                    <a href="#" data-filter=".graphicdesign">Graphic Design</a>
-                    <a href="#" data-filter=".illustrator">Illustrator</a>
-                    <a href="#" data-filter=".photography">Photography</a>
-                </div>
+<div class="container-fluid">
+<!-- SELECT proje.id,proje.name,images.filename,SUM(resim_rating.rate),COUNT(resim_rating.user_id),resim_rating.user_id FROM proje INNER JOIN images ON proje.id = images.proje_id LEFT JOIN resim_rating ON images.id = resim_rating.resim_id GROUP BY images.id order by proje.id DESC -->
+
+<?php $i=0; ?>
+                        <?php foreach ($names as $name ): //proje isimeleri çekilir?>
+
+                        <!-- SECTION FILTER
+                        ================================================== -->
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12 ">
+                                <div class="portfolioFilter gallery-second">
+                                    <!-- <a href="#" data-filter="*" class="current">All</a> -->
+                                    <a href="#" data-filter=".webdesign{{$i}}" class="current">{{$name->proje_name}}</a>
+                                    <!-- <a href="#" data-filter=".graphicdesign">Graphic Design</a> -->
+                                    <!-- <a href="#" data-filter=".illustrator">Illustrator</a> -->
+                                    <!-- <a href="#" data-filter=".photography">Photography</a> -->
+                                </div>
+                                <div class="portfolioFilter text-right gallery-second">
+                                    <!-- <a href="#" data-filter="*" class="current">All</a> -->
+                                  <?php if ($name->rate>0) {
+                                      echo "  proje ortalaması : ".round($name->rate/$name->_count,2);
+                                    } ?>
+                                    <!-- <a href="#" data-filter=".graphicdesign">Graphic Design</a> -->
+                                    <!-- <a href="#" data-filter=".illustrator">Illustrator</a> -->
+                                    <!-- <a href="#" data-filter=".photography">Photography</a> -->
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="port">
+                            <div class="portfolioContainer" style="position: relative; height: 2520px;">
+                              <?php foreach ($projeler as $proje): ?>
+                                <?php $i++; ?>
+                                <?php if ($name->proje_id==$proje->proje_id): ?>
+                                <div class="col-sm-6 col-md-4 webdesign{{$i}}" style="position: absolute; left: 0px; top: 0px;">
+
+                                    <a href="{{URL::asset('/images/full_size/')}}{{"/".$proje->image_name}}" class="image-popup">
+                                        <div class="portfolio-masonry-box">
+                                            <div class="portfolio-masonry-img">
+                                                <img src="{{URL::asset('/images/full_size/')}}{{"/".$proje->image_name}}" class="thumb-img img-fluid" alt="work-thumbnail">
+                                            </div>
+                                            <div class="portfolio-masonry-detail">
+                                                <!-- <h4 class="font-18">Street Photography</h4>
+                                                <p>Graphic Design</p> -->
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <fieldset class="rating">
+                                      <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                        <input type="radio" id="star5{{$i}}" name="rating" value="5" onclick="tiklandi(this,'5','{{$proje->resim_id}}','{{$i}}')"/><label class = "full" for="star5{{$i}}" title="Awesome - 5 stars"></label>
+
+                                        <input type="radio" id="star4{{$i}}" name="rating" value="4" onclick="tiklandi(this,'4','{{$proje->resim_id}}','{{$i}}')"/><label class = "full" for="star4{{$i}}" title="Pretty good - 4 stars"></label>
+
+                                        <input type="radio" id="star3{{$i}}" name="rating" value="3" onclick="tiklandi(this,'3','{{$proje->resim_id}}','{{$i}}')"/><label class = "full" for="star3{{$i}}" title="Meh - 3 stars"></label>
+
+                                        <input type="radio" id="star2{{$i}}" name="rating" value="2" onclick="tiklandi(this,'2','{{$proje->resim_id}}','{{$i}}')"/><label class = "full" for="star2{{$i}}" title="Kinda bad - 2 stars"></label>
+
+                                        <input type="radio" id="star1{{$i}}" name="rating" value="1" onclick="tiklandi(this,'1','{{$proje->resim_id}}','{{$i}}')"/><label class = "full" for="star1{{$i}}" title="Sucks big time - 1 star"></label>
+
+                                    </fieldset>
+                                    <br><br>
+                                    <div class="text-right" id ="result{{$i}}">
+                                        <?php if ($proje->rate > 0): ?>
+                                          /{{$proje->rate /$proje->_count}}
+                                        <?php endif; ?>
+                                  </div>
+                            </div> <!-- End row -->
+                          <?php endif; ?>
+
+                        <?php endforeach; ?>
+
+                            </div>
+                        </div>
+
+                <?php endforeach; ?>
             </div>
-        </div>
-
-        <div class="port">
-            <div class="portfolioContainer">
-                <div class="col-sm-6 col-md-4 webdesign illustrator">
-                    <a href="assets/images/small/img-1.jpg" class="image-popup">
-                        <div class="portfolio-masonry-box">
-                            <div class="portfolio-masonry-img">
-                                <img src="assets/images/small/img-1.jpg" class="thumb-img img-fluid" alt="work-thumbnail">
-                            </div>
-                            <div class="portfolio-masonry-detail">
-                                <h4 class="font-18">Street Photography</h4>
-                                <p>Graphic Design</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="col-sm-6 col-md-4 graphicdesign illustrator photography">
-                    <a href="assets/images/small/img-2.jpg" class="image-popup">
-                        <div class="portfolio-masonry-box">
-                            <div class="portfolio-masonry-img">
-                                <img src="assets/images/small/img-2.jpg" class="thumb-img" alt="work-thumbnail">
-                            </div>
-                            <div class="portfolio-masonry-detail">
-                                <h4 class="font-18">Traditional Building</h4>
-                                <p>Photography</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="col-sm-6 col-md-4 webdesign graphicdesign">
-                    <a href="assets/images/small/img-3.jpg" class="image-popup">
-                        <div class="portfolio-masonry-box">
-                            <div class="portfolio-masonry-img">
-                                <img src="assets/images/small/img-3.jpg" class="thumb-img img-fluid" alt="work-thumbnail">
-                            </div>
-                            <div class="portfolio-masonry-detail">
-                                <h4 class="font-18">Beautiful House</h4>
-                                <p>Natural</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="col-sm-6 col-md-4 illustrator photography">
-                    <a href="assets/images/small/img-4.jpg" class="image-popup">
-                        <div class="portfolio-masonry-box">
-                            <div class="portfolio-masonry-img">
-                                <img src="assets/images/small/img-4.jpg" class="thumb-img img-fluid" alt="work-thumbnail">
-                            </div>
-                            <div class="portfolio-masonry-detail">
-                                <h4 class="font-18">Creative Agency</h4>
-                                <p>Natural</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="col-sm-6 col-md-4 graphicdesign photography">
-                    <a href="assets/images/small/img-5.jpg" class="image-popup">
-                        <div class="portfolio-masonry-box">
-                            <div class="portfolio-masonry-img">
-                                <img src="assets/images/small/img-5.jpg" class="thumb-img" alt="work-thumbnail">
-                            </div>
-                            <div class="portfolio-masonry-detail">
-                                <h4 class="font-18">Street Photography</h4>
-                                <p>Photography</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="col-sm-6 col-md-4 webdesign photography">
-                    <a href="assets/images/small/img-6.jpg" class="image-popup">
-                        <div class="portfolio-masonry-box">
-                            <div class="portfolio-masonry-img">
-                                <img src="assets/images/small/img-6.jpg" class="thumb-img img-fluid" alt="work-thumbnail">
-                            </div>
-                            <div class="portfolio-masonry-detail">
-                                <h4 class="font-18">Creative Agency</h4>
-                                <p>Web Design</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="col-sm-6 col-md-4 illustrator photography graphicdesign">
-                    <a href="assets/images/small/img-7.jpg" class="image-popup">
-                        <div class="portfolio-masonry-box">
-                            <div class="portfolio-masonry-img">
-                                <img src="assets/images/small/img-7.jpg" class="thumb-img" alt="work-thumbnail">
-                            </div>
-                            <div class="portfolio-masonry-detail">
-                                <h4 class="font-18">Traditional Building</h4>
-                                <p>Photography</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="col-sm-6 col-md-4 graphicdesign photography webdesign">
-                    <a href="assets/images/small/img-1.jpg" class="image-popup">
-                        <div class="portfolio-masonry-box">
-                            <div class="portfolio-masonry-img">
-                                <img src="assets/images/small/img-1.jpg" class="thumb-img img-fluid" alt="work-thumbnail">
-                            </div>
-                            <div class="portfolio-masonry-detail">
-                                <h4 class="font-18">Beautiful House</h4>
-                                <p>Natural</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="col-sm-6 col-md-4 webdesign illustrator">
-                    <a href="assets/images/small/img-3.jpg" class="image-popup">
-                        <div class="portfolio-masonry-box">
-                            <div class="portfolio-masonry-img">
-                                <img src="assets/images/small/img-3.jpg" class="thumb-img img-fluid" alt="work-thumbnail">
-                            </div>
-                            <div class="portfolio-masonry-detail">
-                                <h4 class="font-18">Creative Agency</h4>
-                                <p>Natural</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-            </div>
-        </div> <!-- End row -->
-
-    </div> <!-- container -->
 
 
 @endsection
