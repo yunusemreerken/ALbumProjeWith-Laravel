@@ -6,6 +6,21 @@
   <div class="col-12">
       <div class="card-box">
           <h4 class="m-t-0 header-title">Projeler</h4>
+          @if(session()->has('success'))
+              <div class="alert alert-success">
+                  {{ session()->get('success') }}
+              </div>
+          @endif
+          @if(session()->has('warning'))
+              <div class="alert alert-warning">
+                  {{ session()->get('warning') }}
+              </div>
+          @endif
+          @if(session()->has('danger'))
+              <div class="alert alert-danger">
+                  {{ session()->get('danger') }}
+              </div>
+          @endif
           <ol class="button-list float-right">
                 <!-- <button type="button" class="btn btn-outline-primary waves-light waves-effect">Yeni Proje Ekle</button> -->
                 <a href="{{route('projeEkle')}}" class="btn btn-outline-primary waves-light waves-effect">Yeni Proje Ekle</a>
@@ -50,7 +65,6 @@
 
                           <td>
                               {{$proje->resimlercount}}
-                          </td>
 
                           <td>
                             <?php if ($proje->rate !== null): ?>
@@ -71,10 +85,11 @@
                                data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Düzenle"><i class="mdi mdi-tooltip-edit"></i></a>
                                <?php if ($proje->deleted!=0): ?>
 
-                                 <button type="submit" name="activeted" value="{{$proje->proje_id}}" class="btn btn-sm btn-success" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Aktif Yap"><i class="mdi mdi-tooltip-outline-plus"></i></button>
+                                 <button type="submit" name="activeted" value="{{$proje->proje_id}}" class="btn btn-sm btn-success" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Aktif Yap"><i class="fa fa-plus"></i></button>
                                  <?php else: ?>
-                                   <button type="submit" name="delete" value="{{$proje->proje_id}}" class="btn btn-sm btn-danger" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Pasif Yap"><i class="mdi mdi-delete"></i></button>
+                                   <button type="submit" name="delete" value="{{$proje->proje_id}}" class="btn btn-sm btn-warning" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Pasif Yap"><i class="fa fa-minus"></i></button>
                                <?php endif; ?>
+                               <button type="submit" name="proje_delete" value="{{$proje->proje_id}}" class="btn btn-sm btn-danger" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Sil"><i class="fa fa-trash-o"></i></button>
                             </form>
 
                             <form id="logout-form{{$i}}"

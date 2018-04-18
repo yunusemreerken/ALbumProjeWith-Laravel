@@ -36,12 +36,14 @@ Route::group(['middleware' => 'auth','middleware' => 'is_admin'], function()
   route::post('detay','AdminController@detay')->name('detay');
   route::get('detay2/{id}','AdminController@detay2');
 
+  //image aktif pasif  sil
+  route::post('imageStatus','AdminController@imageStatus')->name('imageStatus');
+
   // route::get('projeDetay','AdminController@projeDetay')->name('projeDetay');
   // route::get('duzenle','AdminController@duzenle')->name('duzenle');
-  route::post('imageStatus','AdminController@imageStatus')->name('imageStatus');
   // route::get('aktif/{id}','AdminController@aktif');
   // route::get('pasif','AdminController@pasif')->name('pasif');
-  route::post('dd','AdminController@imageDetay')->name('dd');
+  // route::post('dd','AdminController@imageDetay')->name('dd');
 
   // Route::get('admin','AdminController@index')->name('admin');
   // proje seç ve resim ekle

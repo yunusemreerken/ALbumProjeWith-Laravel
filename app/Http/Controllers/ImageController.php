@@ -34,7 +34,7 @@ class ImageController extends Controller
           }
           else
           {
-            $query2 = DB::SELECT('INSERT INTO proje (name,is_deleted) VALUES(?,?)',[$proje_name,0]);
+            $query2 = DB::SELECT('INSERT INTO proje (name,is_deleted,proje_delete) VALUES(?,?,?)',[$proje_name,0,0]);
             $id = DB::getPdo()->lastInsertId();
           }
         }

@@ -35,6 +35,7 @@ class AdminController extends Controller
                               FROM proje
                               INNER JOIN images ON images.proje_id=proje.id
                               LEFT JOIN resim_rating ON resim_rating.resim_id = images.id
+                              where images.image_delete=0 AND proje.proje_delete=0
                               GROUP BY proje.id order by proje.id DESC ');
         return view('admin.index')->with('projeler', $query);
     }
@@ -82,11 +83,27 @@ class AdminController extends Controller
           $query = DB::SELECT('UPDATE proje SET proje.is_deleted = 0 WHERE  proje.id = ? ',[$proje_aktif]);
           return back()->with('success','Proje activeted successfully');
         }
-        else {
+        else if(isset($request->delete)){
             $proje_delete = $request->delete;
             $query = DB::SELECT('UPDATE proje SET proje.is_deleted = 1 WHERE  proje.id = ? ',[$proje_delete]);
-            return back()->with('success','Proje passive successfully');
+            return back()->with('warning','Proje passive successfully');
         }
+        else {
+          $proje_delete = $request->proje_delete;
+          $query = DB::SELECT('UPDATE proje SET proje.proje_delete = 1 WHERE  proje.id = ? ',[$proje_delete]);
+          return back()->with('danger','Proje deleted successfully');
+        }
+    }
+    public function detay2($id)
+    {
+      $query = DB::SELECT('SELECT proje.id as proje_id,proje.name as proje_name,images.is_deleted as deleted, ANY_VALUE(images.filename) as image_name,images.id as resim_id, COUNT(resim_rating.rate) as _count,SUM(resim_rating.rate) as rate
+      FROM proje
+      INNER JOIN images ON proje.id = images.proje_id
+      LEFT JOIN resim_rating ON resim_rating.resim_id = images.id
+      where images.image_delete=0 AND proje.id = ?
+      GROUP BY images.id',[$id]);
+      // echo "başarılı";
+      return view('admin.proje-detay')->with('images',$query);
     }
     public function imageStatus(Request $request)
     {
@@ -96,23 +113,16 @@ class AdminController extends Controller
         $query = DB::SELECT('UPDATE images SET images.is_deleted = 0 WHERE  images.id = ? ',[$proje_aktif]);
         return back()->with('success','İmage activeted successfully');
       }
-      else {
-          $proje_delete = $request->delete;
-          $query = DB::SELECT('UPDATE images SET images.is_deleted = 1 WHERE  images.id = ? ',[$proje_delete]);
-          return back()->with('success','İmage passive successfully');
+      else if(isset($request->delete)){
+        $proje_delete = $request->delete;
+        $query = DB::SELECT('UPDATE images SET images.is_deleted = 1 WHERE  images.id = ? ',[$proje_delete]);
+        return back()->with('warning','İmage passive successfully');
       }
-    }
-    public function detay2($id)
-    {
-
-      $query = DB::SELECT('SELECT proje.id as proje_id,proje.name as proje_name,images.is_deleted as deleted, ANY_VALUE(images.filename) as image_name,images.id as resim_id, COUNT(resim_rating.rate) as _count,SUM(resim_rating.rate) as rate
-      FROM proje
-      INNER JOIN images ON proje.id = images.proje_id
-      LEFT JOIN resim_rating ON resim_rating.resim_id = images.id
-      where proje.id = ?
-      GROUP BY images.id',[$id]);
-      // echo "başarılı";
-      return view('admin.proje-detay')->with('images',$query);
+      else {
+        $proje_delete = $request->image_delete;
+        $query = DB::SELECT('UPDATE images SET images.image_delete = 1 WHERE  images.id = ? ',[$proje_delete]);
+        return back()->with('danger','İmage deleted successfully');
+      }
     }
 
     // public function aktif($id)

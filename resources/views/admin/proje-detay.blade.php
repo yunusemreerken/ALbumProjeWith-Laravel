@@ -10,6 +10,22 @@
                                   <?php $t=1;  foreach ($images as $image): ?>
                                     <?php if ($t==1): ?>
                                       <a href="" data-filter=".webdesign" class="current">{{$image->proje_name}}</a>
+                                      @if(session()->has('success'))
+                                          <div class="alert alert-success">
+                                              {{ session()->get('success') }}
+                                          </div>
+                                      @endif
+                                      @if(session()->has('warning'))
+                                          <div class="alert alert-warning">
+                                              {{ session()->get('warning') }}
+                                          </div>
+                                      @endif
+                                      @if(session()->has('danger'))
+                                          <div class="alert alert-danger">
+                                              {{ session()->get('danger') }}
+                                          </div>
+                                      @endif
+
 
                                     <?php endif; $t++;?>
                                   <?php endforeach; ?>
@@ -28,20 +44,16 @@
 
                                           </div>
                                           <div class="portfolio-masonry-detail">
-                                            <!-- <button type="button" name="activeted"  onclick="event.preventDefault();document.getElementById('logout-form').submit();" value="{{$image->resim_id}}" class="btn btn-sm btn-success" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Aktif Yap"><i class="mdi mdi-tooltip-outline-plus"></i></button>
-                                            <button type="button" name="delete"  onclick="event.preventDefault();document.getElementById('logout-form').submit();" value="{{$image->resim_id}}" class="btn btn-sm btn-danger" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Pasif Yap"><i class="mdi mdi-delete"></i></button>
-
-                                            <form id="logout-form" action="{{route('dd')}}"  method="post">
-                                                {{ csrf_field() }}
-                                            </form> -->
+                                          
 
                                             <form class="" action="{{route('imageStatus')}}" method="post">
                                               @csrf
                                               <?php if ($image->deleted !=0): ?>
-                                                <button type="submit" name="activeted" value="{{$image->resim_id}}" class="btn btn-sm btn-success" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Aktif Yap"><i class="mdi mdi-tooltip-outline-plus"></i></button>
+                                                <button type="submit" name="activeted" value="{{$image->resim_id}}" class="btn btn-sm btn-success" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Aktif Yap"><i class="fa fa-plus"></i></button>
                                                 <?php else: ?>
-                                                  <button type="submit" name="delete" value="{{$image->resim_id}}" class="btn btn-sm btn-danger" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Pasif Yap"><i class="mdi mdi-delete"></i></button>
+                                                  <button type="submit" name="delete" value="{{$image->resim_id}}" class="btn btn-sm btn-warning" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Pasif Yap"><i class="fa fa-minus"></i></button>
                                               <?php endif; ?>
+                                              <button type="submit" name="image_delete" value="{{$image->resim_id}}" class="btn btn-sm btn-danger" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Sil"><i class="fa fa-trash-o"></i></button>
                                             </form>
 
 

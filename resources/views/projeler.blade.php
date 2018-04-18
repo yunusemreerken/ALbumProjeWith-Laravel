@@ -45,7 +45,7 @@
                                     <a href="{{URL::asset('/images/full_size/')}}{{"/".$proje->image_name}}" class="image-popup">
                                         <div class="portfolio-masonry-box">
                                             <div class="portfolio-masonry-img border-none">
-                                                <img src="{{URL::asset('/images/full_size/')}}{{"/".$proje->image_name}}" class="thumb-img img-fluid" alt="work-thumbnail">
+                                                <img src="{{URL::asset('/images/icon_size/')}}{{"/".$proje->image_name}}" class="thumb-img img-fluid" alt="work-thumbnail">
                                             </div>
                                             <div class="portfolio-masonry-detail">
                                                 <!-- <h4 class="font-18">Street Photography</h4>
