@@ -52,7 +52,7 @@
                                                 <p>Graphic Design</p> -->
                                             </div>
                                           </a>
-                                            <div class="image-border text-right">
+                                            <div class="image-border ">
                                               <fieldset class="rating">
                                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                                 <input type="radio" id="star5{{$i}}" name="rating" value="5" onclick="tiklandi(this,'5','{{$proje->resim_id}}','{{$i}}')"/><label class = "full" for="star5{{$i}}" title="Awesome - 5 stars"></label>
@@ -67,7 +67,9 @@
 
                                               </fieldset>
                                               <?php if ($proje->rate > 0): ?>
-                                                <p id ="result{{$i}}">/{{$proje->rate /$proje->_count}}</p>
+                                                  <p id ="result{{$i}}" class="text-right">/{{$proje->rate /$proje->_count}}</p>
+                                                  <?php else: ?>
+                                                    <p id ="result{{$i}}" class="text-right">0/0</p>
                                               <?php endif; ?>
                                             </div>
                                         </div>

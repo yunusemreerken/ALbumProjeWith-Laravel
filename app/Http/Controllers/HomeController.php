@@ -30,6 +30,8 @@ class HomeController extends Controller
                           images ON images.proje_id = proje.id
                         LEFT JOIN
                           resim_rating ON resim_rating.resim_id = images.id
+                        WHERE
+                          proje.is_deleted=0 AND images.is_deleted=0
                         GROUP BY
                           proje.id
                         ORDER BY
@@ -48,7 +50,7 @@ class HomeController extends Controller
                             resim_rating ON resim_rating.resim_id = images.id
                           INNER JOIN
                             proje ON proje.id = images.proje_id
-                            where proje.id in (SELECT proje.id FROM proje)
+                            where proje.id in (SELECT proje.id FROM proje) AND proje.is_deleted=0 AND images.is_deleted=0
                           GROUP by images.id
                           ORDER by proje.id DESC
                           ');
@@ -80,7 +82,7 @@ class HomeController extends Controller
                             images ON images.proje_id = proje.id
                           left JOIN
                             resim_rating ON resim_rating.resim_id = images.id
-                            where proje.id =?
+                            where proje.id = ? AND proje.is_deleted=0 AND images.is_deleted=0
                           GROUP BY
                             proje.id
                           ORDER BY
@@ -98,7 +100,7 @@ class HomeController extends Controller
                               resim_rating ON resim_rating.resim_id = images.id
                             INNER JOIN
                               proje ON proje.id = images.proje_id
-                              where proje.id = ?
+                              where proje.id = ? AND proje.is_deleted=0 AND images.is_deleted=0
                             GROUP by images.id
 
                             ORDER by proje.id DESC',[$id]);

@@ -13,8 +13,8 @@
 */
 Route::get('/home','HomeController@index')->name('home');
 
-// Route::get('/','denemeController@index')->name('home');
 route::get('/','HomeController@index')->name('projeler');
+
 route::post('projeDetay','HomeController@projeDetay')->name('projeDetay');
 
 Route::post('/starRating','AlbumController@galery_rating')->name('starRating');
@@ -24,7 +24,7 @@ Route::post('/starRating',array('as'=>'starRating',
 
 Auth::routes();
 
-Route::group(['middleware' => 'auth','middleware' => 'adminCheck'], function()
+Route::group(['middleware' => 'auth','middleware' => 'is_admin'], function()
 {
   route::get('admin','AdminController@index')->name('admin');
   //image upload

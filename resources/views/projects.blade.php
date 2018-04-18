@@ -17,7 +17,7 @@
                             <div class="col-lg-12 col-md-12 col-sm-12 ">
                                 <div class="portfolioFilter gallery-second">
                                     <!-- <a href="#" data-filter="*" class="current">All</a> -->
-                                    <a href="#" data-filter=".webdesign{{$i}}" class="current">{{$name->proje_name}}</a>
+                                    <a href="#" data-filter=".webdesign" class="current">{{$name->proje_name}}</a>
                                     <!-- <a href="#" data-filter=".graphicdesign">Graphic Design</a> -->
                                     <!-- <a href="#" data-filter=".illustrator">Illustrator</a> -->
                                     <!-- <a href="#" data-filter=".photography">Photography</a> -->
@@ -39,11 +39,11 @@
                               <?php foreach ($projeler as $proje): ?>
                                 <?php $i++; ?>
                                 <?php if ($name->proje_id==$proje->proje_id): ?>
-                                <div class="col-sm-6 col-md-4 webdesign{{$i}}" style="position: absolute; left: 0px; top: 0px;">
+                                <div class="col-sm-6 col-md-4 webdesign" style="position: absolute; left: 0px; top: 0px;">
 
                                     <a href="{{URL::asset('/images/full_size/')}}{{"/".$proje->image_name}}" class="image-popup">
                                         <div class="portfolio-masonry-box">
-                                            <div class="portfolio-masonry-img">
+                                            <div class="portfolio-masonry-img border-none">
                                                 <img src="{{URL::asset('/images/full_size/')}}{{"/".$proje->image_name}}" class="thumb-img img-fluid" alt="work-thumbnail">
                                             </div>
                                             <div class="portfolio-masonry-detail">
@@ -52,8 +52,9 @@
                                             </div>
                                         </div>
                                     </a>
-                                    <fieldset class="rating">
-                                      <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                    <div class="image-border ">
+                                      <fieldset class="rating">
+                                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                         <input type="radio" id="star5{{$i}}" name="rating" value="5" onclick="tiklandi(this,'5','{{$proje->resim_id}}','{{$i}}')"/><label class = "full" for="star5{{$i}}" title="Awesome - 5 stars"></label>
 
                                         <input type="radio" id="star4{{$i}}" name="rating" value="4" onclick="tiklandi(this,'4','{{$proje->resim_id}}','{{$i}}')"/><label class = "full" for="star4{{$i}}" title="Pretty good - 4 stars"></label>
@@ -64,13 +65,14 @@
 
                                         <input type="radio" id="star1{{$i}}" name="rating" value="1" onclick="tiklandi(this,'1','{{$proje->resim_id}}','{{$i}}')"/><label class = "full" for="star1{{$i}}" title="Sucks big time - 1 star"></label>
 
-                                    </fieldset>
-                                    <br><br>
-                                    <div class="text-right" id ="result{{$i}}">
-                                        <?php if ($proje->rate > 0): ?>
-                                          /{{$proje->rate /$proje->_count}}
-                                        <?php endif; ?>
-                                  </div>
+                                      </fieldset>
+                                      <?php if ($proje->rate > 0): ?>
+                                          <p id ="result{{$i}}" class="text-right">/{{$proje->rate /$proje->_count}}</p>
+                                          <?php else: ?>
+                                            <p id ="result{{$i}}" class="text-right">0/0</p>
+                                      <?php endif; ?>
+                                    </div>
+
                             </div> <!-- End row -->
                           <?php endif; ?>
 

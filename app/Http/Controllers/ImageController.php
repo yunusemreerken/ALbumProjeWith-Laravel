@@ -11,6 +11,7 @@ class ImageController extends Controller
 
     public function __construct(ImageRepository $imageRepository)
     {
+      $this->middleware('is_admin');
         $this->image = $imageRepository;
     }
 
@@ -27,7 +28,7 @@ class ImageController extends Controller
 
         foreach ($query as $que) {
 
-          if($que->_count>=1)
+          if($que->_count>0)
           {
             $id = $que->id;
           }
@@ -51,7 +52,7 @@ class ImageController extends Controller
         {
             return 0;
         }
-        
+
         $response = $this->image->delete( $filename );
 
         return $response;

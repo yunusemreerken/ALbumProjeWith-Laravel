@@ -69,8 +69,12 @@
                               @csrf
                                <a onclick="event.preventDefault();document.getElementById('logout-form{{$i}}').submit();" class="btn btn-sm btn-custom"
                                data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Düzenle"><i class="mdi mdi-tooltip-edit"></i></a>
-                              <button type="submit" name="activeted" value="{{$proje->proje_id}}" class="btn btn-sm btn-success" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Aktif Yap"><i class="mdi mdi-tooltip-outline-plus"></i></button>
-                              <button type="submit" name="delete" value="{{$proje->proje_id}}" class="btn btn-sm btn-danger" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Pasif Yap"><i class="mdi mdi-delete"></i></button>
+                               <?php if ($proje->deleted!=0): ?>
+
+                                 <button type="submit" name="activeted" value="{{$proje->proje_id}}" class="btn btn-sm btn-success" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Aktif Yap"><i class="mdi mdi-tooltip-outline-plus"></i></button>
+                                 <?php else: ?>
+                                   <button type="submit" name="delete" value="{{$proje->proje_id}}" class="btn btn-sm btn-danger" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Pasif Yap"><i class="mdi mdi-delete"></i></button>
+                               <?php endif; ?>
                             </form>
 
                             <form id="logout-form{{$i}}"
